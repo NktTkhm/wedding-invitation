@@ -1,0 +1,592 @@
+/* style.css - Новый стиль для свадебного сайта (по примеру invitingyou.ru/maket9) */
+
+/* --- Базовые стили --- */
+html {
+  scroll-behavior: smooth; /* Плавная прокрутка */
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #333;
+  background-color: #c8c1b8; /* Set background to #c8c1b8 */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  font-weight: normal; /* Убираем стандартную жирность */
+}
+
+h2 { /* Заголовки секций */
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.8rem; /* Увеличим немного */
+  font-weight: 700;
+  color: #444;
+  margin-bottom: 2rem;
+  position: relative;
+  display: inline-block; /* Чтобы before/after работали корректно */
+  padding-bottom: 0.5rem;
+}
+
+/* Декоративная линия под заголовками секций */
+h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px; /* Ширина линии */
+  height: 1px;
+  background-color: #c5b39f; /* Золотисто-бежевый акцент */
+}
+
+section {
+  padding: 5rem 2rem;
+  min-height: 80vh; /* Минимальная высота секции */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  /* overflow: hidden; */ /* Removed */
+  /* color: #fff; */ /* Reverted */
+}
+
+/* Add divider lines between sections */
+section + section {
+  border-top: 1px solid #a8a198; /* Thin divider line */
+}
+
+p {
+  max-width: 650px; /* Ограничение ширины параграфов */
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+}
+
+a {
+  color: #a88a67; /* Золотисто-бежевый для ссылок */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #8b6f4d; /* Темнее при наведении */
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block; /* Убирает лишний отступ под картинками */
+}
+
+/* --- Hero Section --- */
+.hero {
+  height: 100vh;
+  min-height: 600px; /* Минимальная высота на всякий случай */
+  /* background-image: url('foto.jpeg'); */ /* Removed */
+  background-color: #faf0e6; /* Set beige background */
+  background-image: url('fon1.svg'); /* Added fon1.svg */
+  background-size: cover; /* Adjust as needed (cover, contain, auto) */
+  background-position: center 5%; /* Reverted to previous value */
+  background-repeat: no-repeat;
+  color: #fff;
+  padding: 2rem;
+  position: relative;
+  /* Не используем flex здесь, оставим позиционирование контента */
+}
+
+/* Легкое затемнение для читаемости */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.2); /* Очень легкое затемнение */
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  /* Центрируем контент абсолютно */
+  position: absolute;
+  top: 45%; /* Adjusted for visual centering */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%; /* Ширина контента */
+}
+
+.hero-content h1 { /* Имена */
+  /* font-family: 'Great Vibes', cursive; */
+  font-family: 'Oranienbaum', serif; /* Changed font */
+  font-size: 7rem; /* Крупный скриптовый шрифт */
+  color: #fff;
+  font-weight: normal;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+}
+
+.hero-content .date,
+.hero-content .subtitle {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: #fff;
+  margin-bottom: 0.5rem;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
+}
+
+.hero-content .subtitle {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.hero-photo {
+  display: block; /* Чтобы margin: auto работал */
+  margin: 0 auto 1.5rem auto; /* Уберем верхний отступ, оставим нижний и центрирование */
+  position: relative; /* Добавлено для независимого смещения */
+  /* Используйте top для смещения фото ВНИЗ (положительное значение) или ВВЕРХ (отрицательное) */
+  /* Например: top: 20px; (опустить на 20px) или top: -10px; (поднять на 10px) */
+  /*top: 2px; */
+  /* top: 80%; */ /* Removed top positioning */
+
+  /* Объединяем вращение и сдвиг */
+  /* Используйте translateY для смещения ВНИЗ (+) или ВВЕРХ (-) */
+  transform: rotate(10deg) translateY(50%); /* Keep rotation & add translateY */
+
+  max-width: 400px; /* Increased size again */
+  width: 90%; /* Increased size again */
+  height: auto; /* Сохраняем пропорции */
+  border: 5px solid #800020; /* Keep border */
+}
+
+.hero-text-wrapper {
+  margin-top: 35vh; /* Push text down */
+}
+
+/* --- Welcome Message Section (Moved Here) --- */
+.welcome-message {
+  /* Inherits general section styles */
+  border-top: 1px solid #a8a198; /* Add divider line below hero */
+  display: flex; /* Arrange items (img-text-img) in a row */
+  flex-direction: row; /* Explicitly set row direction */
+  align-items: center; /* Vertically align items */
+  justify-content: center; /* Restored */
+  gap: 2rem; /* Space between items */
+}
+
+.welcome-text-content {
+  max-width: 600px; /* Limit text width */
+  flex-shrink: 0; /* Prevent text block from shrinking too much */
+  text-align: center; /* Center text within this block */
+  /* margin: 0 auto; */ /* Removed */
+}
+
+.welcome-message p {
+  font-size: 1.2rem; /* Чуть крупнее */
+  /* text-align: justify; */ /* Removed to allow centering from parent */
+}
+
+.welcome-images-container {
+  /* This rule seems unused now as images are direct children of .welcome-message? */
+  /* Let's comment it out for now */
+  /* 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem; 
+  margin-top: 2.5rem; 
+  */
+}
+
+/* --- Invitation Section (Commented out in HTML) --- */
+/* Removing related styles */
+/*
+.invitation {
+  padding: 3rem 2rem; 
+  text-align: center; 
+}
+.invitation-container { 
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   gap: 2rem; 
+   margin-top: 2rem; 
+}
+*/
+.invitation-image { 
+  /* Styles moved or applied directly via .welcome-images-container */
+  /* The rule below might still apply if .invitation-image class is used elsewhere */
+  /* display: block; */ /* Removed - Let flex handle display */
+  /* border: 3px solid #800020; */ /* Removed border */
+  border: none;
+  /* max-width: 45%; */
+  max-width: 36%; /* Reduced size by 20% */
+  /* margin: 0.5rem; */ /* Let gap handle spacing */
+  vertical-align: middle; /* Align nicely if heights differ slightly */
+  height: auto; /* Maintain aspect ratio */
+}
+
+/* Restore rule to target only the first image (left) */
+.welcome-message > img:first-child {
+  max-width: 29%; /* Reduced size by 20% */
+}
+
+/* Removed rule that targeted only the first image */
+
+/* Removed specific invitation p and signature styles as they moved */
+
+/* --- Schedule Section --- */
+.schedule {
+  /* background-color: #fdfdfd; */ /* Removed section background */
+  background-image: url('fon2.svg');
+  background-size: cover;
+  background-position: center 50%; /* Move background image down */
+  background-repeat: no-repeat;
+  position: relative; /* Needed if we add an overlay later */
+  /* Override base section flex settings */
+  display: flex; /* Add flex */
+  flex-direction: row;
+  /* justify-content: space-around; */
+  align-items: center;
+  gap: 4rem; /* Increased gap */
+}
+
+/* New rule for the wrapper around h2 and schedule items */
+.schedule-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-grow: 1; /* Allow this block to take remaining space */
+}
+
+.schedule h2 {
+ /* стили h2 */
+ /* May need adjustments depending on layout */
+}
+
+.schedule-items {
+  max-width: 600px; /* Keep for now */
+  /* margin: 0; */ 
+  margin: 2rem auto 0 auto; /* Restore margin */
+  /* text-align: left; */ /* Removed */
+}
+
+/* Rule for the new schedule image */
+.schedule-image {
+  max-width: 35%; /* Limit image width */
+  height: auto;
+  border-radius: 8px;
+  /* box-shadow: 0 4px 8px rgba(0,0,0,0.1); */ /* Removed shadow */
+  flex-shrink: 0; /* Prevent image shrinking */
+}
+
+.schedule-item {
+  padding: 1.5rem 0;
+  border-bottom: 1px solid #eee; /* Разделитель */
+  display: flex;
+  align-items: center; /* Changed for better vertical alignment */
+  gap: 1.5rem;
+}
+.schedule-item:last-child {
+  border-bottom: none;
+}
+
+.schedule-item .time {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #a88a67; /* Акцентный цвет */
+  flex-basis: 80px; /* Фиксированная ширина для времени */
+  flex-shrink: 0;
+  text-align: right;
+}
+
+.schedule-item .event-details {
+  flex-grow: 1;
+  /* text-align: center; */ /* Removed from wrapper */
+}
+
+.schedule-item .event {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 500; /* Полужирный */
+  color: #444;
+  margin: 0 0 0.3rem 0;
+  text-align: center; /* Center event text */
+}
+
+.schedule-item .details {
+  font-size: 1rem;
+  color: #666;
+  font-weight: 300;
+  margin: 0;
+  text-align: center; /* Center details text */
+}
+
+/* Removing rule for the schedule image */
+
+/* --- Location Section --- */
+.location {
+  /* background-color: #fff; */ /* Removed section background */
+}
+
+.location h2 {
+ /* стили h2 */
+}
+
+.location p {
+  font-size: 1.2rem; /* Крупнее */
+}
+
+.location strong {
+  font-weight: 500;
+  color: #333; /* Можно оставить черным или акцентным */
+}
+
+.location .how-to-get {
+  margin-top: 3rem;
+  border-top: 1px solid #eee;
+  padding-top: 2rem;
+  max-width: 650px;
+  width: 100%;
+}
+
+.location .how-to-get h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+.location .how-to-get p {
+  font-size: 1.1rem;
+}
+
+/* --- Dress Code Section --- */
+.dress-code {
+  /* background-color: #fdfdfd; */ /* Removed section background */
+}
+
+.dress-code h2 {
+ /* стили h2 */
+}
+
+.dress-code p {
+  font-size: 1.1rem;
+}
+
+.color-palette {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 2.5rem 0;
+}
+
+.color-swatch {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 3px solid #fff; /* Белая рамка для отделения от фона */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* --- RSVP Section --- */
+.rsvp {
+  /* background-color: #fff; */ /* Removed section background */
+}
+
+.rsvp h2 {
+ /* стили h2 */
+}
+
+.rsvp p {
+  font-size: 1.1rem;
+  margin-bottom: 3rem;
+}
+
+#rsvp-form {
+  max-width: 550px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: left;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.form-group {
+  margin-bottom: 1.8rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.6rem;
+  font-weight: 400; /* Обычный вес */
+  color: #555;
+  font-size: 1rem;
+}
+
+.form-group input[type="text"] {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  color: #333;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input[type="text"]:focus {
+  outline: none;
+  border-color: #a88a67;
+}
+
+.form-group fieldset {
+  border: 1px solid #eee;
+  padding: 1rem 1.5rem 0.5rem 1.5rem;
+  border-radius: 5px;
+  margin: 0; /* Убираем отступы fieldset по умолчанию */
+}
+
+.form-group legend {
+  font-weight: 500;
+  padding: 0 0.5rem;
+  color: #444;
+  font-size: 1.1rem;
+}
+
+.form-group fieldset label {
+  display: block;
+  margin-bottom: 0.8rem;
+  font-weight: 300;
+  color: #333;
+  font-size: 1rem;
+  cursor: pointer; /* Указатель для кликабельных меток */
+}
+
+.form-group input[type="radio"],
+.form-group input[type="checkbox"] {
+  margin-right: 0.7rem;
+  vertical-align: middle; /* Выравнивание с текстом */
+  cursor: pointer;
+}
+
+.submit-button {
+  background-color: #a88a67; /* Акцентный цвет */
+  color: white;
+  padding: 1rem 2.5rem;
+  border: none;
+  border-radius: 5px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  display: block;
+  width: auto; /* Не на всю ширину */
+  margin: 2rem auto 0 auto; /* Центрируем кнопку */
+}
+
+.submit-button:hover {
+  background-color: #8b6f4d;
+  transform: translateY(-2px);
+}
+
+/* --- Contacts Section --- */
+.contacts {
+  /* background-color: #fdfdfd; */ /* Removed section background */
+}
+
+.contacts h2 {
+ /* стили h2 */
+}
+
+.contacts p {
+  font-size: 1.1rem;
+}
+
+.contacts a {
+  font-weight: 400;
+}
+
+/* --- Footer --- */
+.site-footer {
+  padding: 2.5rem 2rem;
+  /* background-color: #f8f8f8; */ /* Removed footer background */
+  color: #777; /* Серый текст */
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 300;
+  min-height: auto; /* Убираем мин. высоту для футера */
+}
+
+.site-footer p {
+  margin: 0;
+  max-width: none; /* Убираем ограничение ширины */
+}
+
+/* --- Адаптивность (Пример) --- */
+@media screen and (max-width: 768px) {
+  h2 {
+    font-size: 2.2rem;
+  }
+  section {
+    padding: 4rem 1rem;
+  }
+  .hero-content h1 {
+    font-size: 4.5rem;
+  }
+  .schedule-item {
+    flex-direction: column;
+    align-items: flex-start; /* Выравнивание влево на мобильных */
+    gap: 0.5rem;
+  }
+  .schedule-item .time {
+    text-align: left;
+    margin-bottom: 0.5rem;
+    flex-basis: auto;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  body {
+    font-size: 15px;
+  }
+  h2 {
+    font-size: 1.8rem;
+  }
+  .hero-content h1 {
+    font-size: 3.5rem;
+  }
+   .hero-content .date,
+  .hero-content .subtitle {
+    font-size: 1.1rem;
+  }
+  p {
+     font-size: 1rem;
+  }
+  .submit-button {
+    width: 100%; /* Кнопка на всю ширину на маленьких экранах */
+    padding: 1rem;
+  }
+}

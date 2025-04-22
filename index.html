@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Наша Свадьба - Никита и Полина</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="hero">
+        <div class="hero-content">
+            
+            <img src="foto2.jpeg" alt="Никита и Полина фото" class="hero-photo">
+            <div class="hero-text-wrapper"> 
+              <h1>Никита и Полина</h1>
+              <p class="date">22.06.2025</p>
+              <p class="subtitle">неСлучайные*</p>
+            </div>
+            
+        </div>
+    </header>
+
+    <!-- Секция Приветствие -->
+    <section class="welcome-message">
+        <img src="foto3.png" alt="Приглашение фото 1" class="invitation-image">
+        <div class="welcome-text-content">
+          <h2>Дорогие наши родные и друзья!</h2>
+          <p>С огромной радостью мы хотим поделиться важным событием – мы создаем семью!</p>
+          <p>Этот день мы мечтаем разделить с самыми близкими и любимыми людьми.</p>
+          <p>Приглашаем вас стать свидетелями начала нашей совместной истории<br>
+             и отпраздновать вместе с нами рождение нашей семьи.</p>
+        </div>
+        <img src="foto4.png" alt="Приглашение фото 2" class="invitation-image">
+    </section>
+
+    <!-- Секция Приглашение (теперь без текста) -->
+    <!-- 
+    <section class="invitation">
+        <div class="invitation-container">
+            <img src="foto3.png" alt="Приглашение фото 1" class="invitation-image invitation-image-left">
+            
+            <img src="foto4.png" alt="Приглашение фото 2" class="invitation-image invitation-image-right">
+        </div>
+    </section>
+    -->
+
+    <!-- Секция Программа дня -->
+    <section class="schedule">
+        <img src="foto5.png" alt="Фото Программа" class="schedule-image">
+        <div class="schedule-content-wrapper">
+          <h2>Программа</h2>
+          <div class="schedule-items">
+              <div class="schedule-item">
+                  <p class="time">15:00</p>
+                  <div class="event-details">
+                    <p class="event">Welcome-зона</p>
+                    <p class="details">Время для приветствий и легких закусок.</p>
+                  </div>
+              </div>
+              <div class="schedule-item">
+                  <p class="time">16:00</p>
+                  <div class="event-details">
+                    <p class="event">Церемония</p>
+                    <p class="details">Самый трогательный момент дня.</p>
+                  </div>
+              </div>
+              <div class="schedule-item">
+                  <p class="time">17:00</p>
+                  <div class="event-details">
+                    <p class="event">Свадебный фуршет</p>
+                    <p class="details">Время вкусной еды, поздравлений и танцев!</p>
+                  </div>
+              </div>
+              <div class="schedule-item">
+                  <p class="time">23:00</p>
+                  <div class="event-details">
+                    <p class="event">Окончание фуршета</p>
+                    <p class="details">Завершение официальной части вечера.</p>
+                  </div>
+              </div>
+          </div>
+        </div>
+    </section>
+
+    <!-- Секция Место проведения -->
+    <section class="location">
+        <h2>Место проведения</h2>
+        <p>Мы будем рады видеть вас в ресторане <strong>"Атмосфера"</strong></p>
+        <p>Адрес: г. Тюмень, ул. Ямская, 22</p>
+        <!-- Сюда можно добавить карту или подробное описание, как добраться -->
+        <div class="how-to-get">
+            <h3>Как добраться?</h3>
+            <p>Рекомендуем воспользоваться услугами такси для вашего удобства.</p>
+            <!-- Можно добавить встроенную карту Google/Yandex -->
+            <!-- <iframe src="URL_КАРТЫ" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe> -->
+        </div>
+    </section>
+
+    <!-- Секция Dress Code -->
+    <section class="dress-code">
+        <h2>Dress Code</h2>
+        <p>Мы будем благодарны, если вы поддержите стиль нашей свадьбы и выберете наряды в предложенной цветовой гамме.</p>
+        <div class="color-palette">
+            <div class="color-swatch" style="background-color: #B29079;"></div>
+            <div class="color-swatch" style="background-color: #E1DACA;"></div>
+            <div class="color-swatch" style="background-color: #F6F5EC;"></div>
+        </div>
+        <p>Не обязательно использовать все цвета, достаточно одного или нескольких оттенков.</p>
+    </section>
+
+    <!-- Секция RSVP -->
+    <section class="rsvp">
+        <h2>Подтвердите присутствие</h2>
+        <p>Пожалуйста, сообщите нам о своем решении до [Укажите дату, например, 1 июня 2025] года.</p>
+        <form id="rsvp-form">
+            <div class="form-group">
+                <label for="guest-name">Ваше имя и фамилия:</label>
+                <input type="text" id="guest-name" name="guestName" required>
+            </div>
+
+            <div class="form-group">
+                <fieldset>
+                    <legend>Сможете ли вы присутствовать?</legend>
+                    <label>
+                        <input type="radio" name="attendance" value="yes" required> Да, с радостью приду!
+                    </label>
+                    <label>
+                        <input type="radio" name="attendance" value="no"> К сожалению, не смогу
+                    </label>
+                </fieldset>
+            </div>
+
+            <div class="form-group">
+                <fieldset>
+                    <legend>Предпочтения по алкогольным напиткам (можно выбрать несколько):</legend>
+                    <label><input type="checkbox" name="drinks" value="wine"> Вино</label>
+                    <label><input type="checkbox" name="drinks" value="whiskey"> Виски</label>
+                    <label><input type="checkbox" name="drinks" value="vodka"> Водка</label>
+                    <label><input type="checkbox" name="drinks" value="champagne"> Шампанское</label>
+                    <label><input type="checkbox" name="drinks" value="non-alcoholic"> Безалкогольные напитки</label>
+                </fieldset>
+            </div>
+
+            <button type="submit" class="submit-button">Отправить ответ</button>
+        </form>
+    </section>
+
+    <!-- Секция Контакты -->
+    <section class="contacts">
+        <h2>Остались вопросы?</h2>
+        <p>Будем рады ответить на них!</p>
+        <p>Никита: <a href="tel:+79129994077">+7 (912) 999-40-77</a></p>
+        <!-- Можно добавить ссылку на мессенджер, например WhatsApp -->
+        <!-- <p><a href="https://wa.me/79129994077" target="_blank">Написать в WhatsApp</a></p> -->
+    </section>
+
+    <!-- Футер -->
+    <footer class="site-footer">
+        <p>С любовью, Никита и Полина | <span id="current-year"></span></p>
+    </footer>
+
+    <!-- Небольшой скрипт для отображения текущего года -->
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+
+</body>
+</html> 
