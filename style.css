@@ -556,6 +556,42 @@ img {
   .hero-content h1 {
     font-size: 4.5rem;
   }
+
+  /* Adjust hero photo for tablets */
+  .hero-photo {
+    max-width: 250px; /* Smaller */
+    width: 60%;
+    transform: rotate(5deg) translateY(30%); /* Less rotation, adjust vertical if needed */
+  }
+
+  /* Stack Welcome Message section */
+  .welcome-message {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  /* Make welcome images same size */
+  .invitation-image {
+    max-width: 60%;
+  }
+  /* Remove specific rule for first image */
+  .welcome-message > img:first-child {
+    max-width: 60%; /* Ensure it's same as the other */
+  }
+
+  /* Stack Schedule section */
+  .schedule {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .schedule-image {
+    max-width: 60%;
+    order: -1; /* Show image above schedule list */
+    margin-bottom: 1.5rem;
+  }
+  .schedule-items {
+    max-width: 90%; /* Allow list to take more width */
+  }
+
   .schedule-item {
     flex-direction: column;
     align-items: flex-start; /* Выравнивание влево на мобильных */
@@ -578,6 +614,23 @@ img {
   .hero-content h1 {
     font-size: 3.5rem;
   }
+
+  /* Adjust hero photo for phones */
+  .hero-photo {
+    max-width: 200px; /* Even smaller */
+    width: 50%;
+    transform: rotate(0deg) translateY(20%); /* No rotation */
+  }
+
+  /* Adjust image sizes */
+  .invitation-image,
+  .schedule-image {
+    max-width: 70%;
+  }
+  .welcome-message > img:first-child {
+      max-width: 70%; /* Ensure it's same as the other */
+  }
+
    .hero-content .date,
   .hero-content .subtitle {
     font-size: 1.1rem;
