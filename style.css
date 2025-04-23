@@ -3,6 +3,8 @@
 /* --- Базовые стили --- */
 html {
   scroll-behavior: smooth; /* Плавная прокрутка */
+  -webkit-text-size-adjust: 100%;    /* Отключаем авто-увеличение текста в iOS */
+  overflow-x: hidden;               /* Запрещаем горизонтальный скролл */
 }
 
 body {
@@ -13,6 +15,11 @@ body {
   color: #333;
   background-color: #c8c1b8; /* Set background to #c8c1b8 */
   margin: 0;
+  /* Учёт «безопасных зон» (notch, скруглённые углы) на iPhone X и новее */
+  padding-top:    env(safe-area-inset-top);
+  padding-right:  env(safe-area-inset-right);
+  padding-bottom: env(safe-area-inset-bottom);
+  padding-left:   env(safe-area-inset-left);
   padding: 0;
   box-sizing: border-box;
 }
@@ -92,7 +99,8 @@ img {
 
 /* --- Hero Section --- */
 .hero {
-  height: 100vh;
+  /* Вместо «штыкового» 100vh — гибкий минимум */
+  min-height: 100vh;
   min-height: 600px; /* Минимальная высота на всякий случай */
   /* background-image: url('foto.jpeg'); */ /* Removed */
   background-color: #faf0e6; /* Set beige background */
@@ -132,9 +140,9 @@ img {
 
 .hero-content h1 { /* Имена */
   /* font-family: 'Great Vibes', cursive; */
-  font-family: 'Oranienbaum', serif; /* Changed font */
-  font-size: 7rem; /* Крупный скриптовый шрифт */
-  color: #fff;
+  font-family: 'Cormorant Garamond', serif; /* Changed font to match h2 */
+  font-size: 5.5rem; /* Reduced size */
+  color: #444; /* Changed to dark color */
   font-weight: normal;
   line-height: 1.1;
   margin-bottom: 1rem;
@@ -146,15 +154,16 @@ img {
   font-family: 'Montserrat', sans-serif;
   font-size: 1.3rem;
   font-weight: 400;
-  color: #fff;
+  color: #444; /* Changed to dark */
   margin-bottom: 0.5rem;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
+  /* text-shadow: 1px 1px 2px rgba(0,0,0,0.4); */ /* Removed */
 }
 
 .hero-content .subtitle {
   font-size: 1.5rem;
   text-transform: uppercase;
   letter-spacing: 1px;
+  /* font-family is already set above */
 }
 
 .hero-photo {
@@ -168,34 +177,37 @@ img {
 
   /* Объединяем вращение и сдвиг */
   /* Используйте translateY для смещения ВНИЗ (+) или ВВЕРХ (-) */
-  transform: rotate(10deg) translateY(50%); /* Keep rotation & add translateY */
+  /* transform: rotate(10deg) translateY(50%); */ /* Removed translateY */
+  transform: rotate(10deg); /* Set rotation only */
 
-  max-width: 400px; /* Increased size again */
+  max-width: 480px; /* Increased size by 20% */
   width: 90%; /* Increased size again */
   height: auto; /* Сохраняем пропорции */
-  border: 5px solid #800020; /* Keep border */
+  /* border: 5px solid #800020; */ /* Removed border */
+  border: none;
 }
 
 .hero-text-wrapper {
-  margin-top: 35vh; /* Push text down */
+  margin-top: 5rem; /* Reduced top margin significantly */
 }
 
 /* --- Welcome Message Section (Moved Here) --- */
 .welcome-message {
   /* Inherits general section styles */
   border-top: 1px solid #a8a198; /* Add divider line below hero */
-  display: flex; /* Arrange items (img-text-img) in a row */
-  flex-direction: row; /* Explicitly set row direction */
-  align-items: center; /* Vertically align items */
-  justify-content: center; /* Restored */
-  gap: 2rem; /* Space between items */
+  /* Remove flex properties, revert to column layout */
+  /* display: flex; */
+  /* flex-direction: row; */
+  /* align-items: center; */
+  /* justify-content: center; */
+  /* gap: 4rem; */
 }
 
 .welcome-text-content {
-  max-width: 600px; /* Limit text width */
-  flex-shrink: 0; /* Prevent text block from shrinking too much */
+  /* max-width: 450px; */ /* Allow default section width */
+  /* flex-shrink: 0; */ /* Not needed */
   text-align: center; /* Center text within this block */
-  /* margin: 0 auto; */ /* Removed */
+  /* margin: 0 auto; */ /* Not needed */
 }
 
 .welcome-message p {
@@ -204,15 +216,12 @@ img {
 }
 
 .welcome-images-container {
-  /* This rule seems unused now as images are direct children of .welcome-message? */
-  /* Let's comment it out for now */
-  /* 
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 2rem; 
   margin-top: 2.5rem; 
-  */
+  width: 100%; /* Take full width to center images */
 }
 
 /* --- Invitation Section (Commented out in HTML) --- */
@@ -231,33 +240,25 @@ img {
 }
 */
 .invitation-image { 
-  /* Styles moved or applied directly via .welcome-images-container */
-  /* The rule below might still apply if .invitation-image class is used elsewhere */
-  /* display: block; */ /* Removed - Let flex handle display */
-  /* border: 3px solid #800020; */ /* Removed border */
+  /* Styles for images below welcome text */
+  /* display: block; */ /* Let flex handle display */
   border: none;
-  /* max-width: 45%; */
-  max-width: 36%; /* Reduced size by 20% */
-  /* margin: 0.5rem; */ /* Let gap handle spacing */
+  max-width: 45%; /* Adjust size for side-by-side */
   vertical-align: middle; /* Align nicely if heights differ slightly */
   height: auto; /* Maintain aspect ratio */
 }
 
-/* Restore rule to target only the first image (left) */
-.welcome-message > img:first-child {
-  max-width: 29%; /* Reduced size by 20% */
-}
-
-/* Removed rule that targeted only the first image */
+/* Removing rule that targeted last image */
 
 /* Removed specific invitation p and signature styles as they moved */
 
 /* --- Schedule Section --- */
 .schedule {
+  -webkit-overflow-scrolling: touch;
   /* background-color: #fdfdfd; */ /* Removed section background */
   background-image: url('fon2.svg');
   background-size: cover;
-  background-position: center 50%; /* Move background image down */
+  background-position: center -25%; /* Move background image up higher */
   background-repeat: no-repeat;
   position: relative; /* Needed if we add an overlay later */
   /* Override base section flex settings */
@@ -279,12 +280,14 @@ img {
 .schedule h2 {
  /* стили h2 */
  /* May need adjustments depending on layout */
+  margin-top: 10rem;
+  margin-bottom: 2rem;
 }
 
 .schedule-items {
   max-width: 600px; /* Keep for now */
   /* margin: 0; */ 
-  margin: 2rem auto 0 auto; /* Restore margin */
+  margin: -2.5rem auto 0 auto;
   /* text-align: left; */ /* Removed */
 }
 
@@ -298,7 +301,7 @@ img {
 }
 
 .schedule-item {
-  padding: 1.5rem 0;
+  padding: 0.4rem 0;
   border-bottom: 1px solid #eee; /* Разделитель */
   display: flex;
   align-items: center; /* Changed for better vertical alignment */
@@ -557,6 +560,14 @@ img {
     font-size: 4.5rem;
   }
 
+  /* Adjust hero content positioning */
+  .hero-content {
+    top: 50%; /* Closer to center */
+  }
+  .hero-text-wrapper {
+    margin-top: 10vh; /* Reduced top margin */
+  }
+
   /* Adjust hero photo for tablets */
   .hero-photo {
     max-width: 250px; /* Smaller */
@@ -565,18 +576,23 @@ img {
   }
 
   /* Stack Welcome Message section */
+  /* Remove old layout rules */
+  /* 
   .welcome-message {
     flex-direction: column;
     gap: 1rem;
   }
+  */
   /* Make welcome images same size */
   .invitation-image {
-    max-width: 60%;
+    max-width: 40%; /* Adjust size for tablets */
   }
   /* Remove specific rule for first image */
+  /*
   .welcome-message > img:first-child {
-    max-width: 60%; /* Ensure it's same as the other */
+    max-width: 30%; 
   }
+  */
 
   /* Stack Schedule section */
   .schedule {
@@ -584,7 +600,8 @@ img {
     gap: 1rem;
   }
   .schedule-image {
-    max-width: 60%;
+    /* max-width: 60%; */
+    max-width: 30%; /* Halved size for mobile */
     order: -1; /* Show image above schedule list */
     margin-bottom: 1.5rem;
   }
@@ -595,12 +612,26 @@ img {
   .schedule-item {
     flex-direction: column;
     align-items: flex-start; /* Выравнивание влево на мобильных */
-    gap: 0.5rem;
+    gap: 0.3rem;
   }
   .schedule-item .time {
     text-align: left;
     margin-bottom: 0.5rem;
     flex-basis: auto;
+  }
+
+  /* Adjust Dress Code Palette */
+  .color-palette {
+    gap: 1rem; /* Smaller gap */
+  }
+  .color-swatch {
+    width: 50px;
+    height: 50px;
+  }
+
+  /* Adjust RSVP Button */
+  .submit-button {
+    width: 100%; /* Full width earlier */
   }
 }
 
@@ -615,21 +646,33 @@ img {
     font-size: 3.5rem;
   }
 
+  /* Adjust hero content positioning */
+  .hero-content {
+      top: 55%; /* Slightly lower on small screens */
+  }
+  .hero-text-wrapper {
+    margin-top: 5vh; /* Further reduced top margin */
+  }
+
   /* Adjust hero photo for phones */
   .hero-photo {
     max-width: 200px; /* Even smaller */
     width: 50%;
-    transform: rotate(0deg) translateY(20%); /* No rotation */
+    transform: none;
+    margin-top: 1rem;
   }
 
   /* Adjust image sizes */
   .invitation-image,
   .schedule-image {
-    max-width: 70%;
+    max-width: 45%; /* Adjust size for phones */
   }
+  /* Remove specific rule for first image */
+  /*
   .welcome-message > img:first-child {
-      max-width: 70%; /* Ensure it's same as the other */
+      max-width: 35%; 
   }
+  */
 
    .hero-content .date,
   .hero-content .subtitle {
@@ -642,4 +685,19 @@ img {
     width: 100%; /* Кнопка на всю ширину на маленьких экранах */
     padding: 1rem;
   }
+
+  /* Adjust Dress Code Palette */
+  .color-swatch {
+    width: 45px;
+    height: 45px;
+  }
+
+  /* Adjust RSVP Form Layout */
+  .form-group fieldset label {
+      display: block; /* Stack labels */
+      margin-bottom: 0.8rem;
+  }
 }
+  .schedule-item {
+    padding: 0.3rem 0;
+  }
