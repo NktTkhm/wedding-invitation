@@ -258,7 +258,7 @@ img {
   /* background-color: #fdfdfd; */ /* Removed section background */
   background-image: url('fon2.svg');
   background-size: cover;
-  background-position: center -25%; /* Move background image up higher */
+  background-position: center -50%; /* Move background image up higher */
   background-repeat: no-repeat;
   position: relative; /* Needed if we add an overlay later */
   /* Override base section flex settings */
@@ -293,11 +293,15 @@ img {
 
 /* Rule for the new schedule image */
 .schedule-image {
-  max-width: 35%; /* Limit image width */
-  height: auto;
+  max-width: 100%;
+  width: 90%;
+  margin-top: 2rem;
   border-radius: 8px;
+  /* max-width: 35%; /* Limit image width */
+  /* height: auto;
+  /* border-radius: 8px;
   /* box-shadow: 0 4px 8px rgba(0,0,0,0.1); */ /* Removed shadow */
-  flex-shrink: 0; /* Prevent image shrinking */
+  /* flex-shrink: 0; /* Prevent image shrinking */
 }
 
 .schedule-item {
@@ -598,12 +602,13 @@ img {
   .schedule {
     flex-direction: column;
     gap: 1rem;
+    background-position: center -70%;
   }
   .schedule-image {
-    /* max-width: 60%; */
-    max-width: 30%; /* Halved size for mobile */
-    order: -1; /* Show image above schedule list */
-    margin-bottom: 1.5rem;
+    max-width: 100%;
+    width: 90%;
+    margin-top: 2rem;
+    order: initial;
   }
   .schedule-items {
     max-width: 90%; /* Allow list to take more width */
@@ -632,6 +637,19 @@ img {
   /* Adjust RSVP Button */
   .submit-button {
     width: 100%; /* Full width earlier */
+  }
+
+  /* Calendar: mobile adjustments */
+  .calendar-grid {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .calendar-day {
+    width: 80%;
+    margin: 0 auto;
+  }
+  .calendar-day .weekday {
+    margin-left: 0; /* reset horizontal offset on mobile */
   }
 }
 
@@ -670,7 +688,7 @@ img {
   /* Remove specific rule for first image */
   /*
   .welcome-message > img:first-child {
-      max-width: 35%; 
+      max-width: 35%;
   }
   */
 
@@ -697,7 +715,157 @@ img {
       display: block; /* Stack labels */
       margin-bottom: 0.8rem;
   }
+
+  /* Calendar: mobile adjustments */
+  .calendar-grid {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .calendar-day {
+    width: 80%;
+    margin: 0 auto;
+  }
+  .calendar-day .weekday {
+    margin-left: 0; /* reset horizontal offset on mobile */
+  }
 }
   .schedule-item {
     padding: 0.3rem 0;
   }
+
+/* --- Calendar Highlight Section --- */
+.calendar-highlight {
+  text-align: center;
+  padding: 60px 20px;
+  background-color: #c8c1b8;
+}
+
+.calendar-grid {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.calendar-day {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 120px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  font-family: 'Montserrat', sans-serif;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.calendar-day:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+.calendar-day .weekday {
+  display: block;
+  font-size: 14px;
+  color: #666;
+  /* Сдвиг подписи дня недели вправо (меняйте значение) */
+  margin-left: -10px;
+}
+
+.calendar-day .day {
+  display: block;
+  font-size: 48px;
+  font-weight: bold;
+  margin: 5px 0;
+  color: #a88a67;
+}
+
+.calendar-day .month {
+  display: block;
+  font-size: 16px;
+  color: #999;
+}
+
+/* --- Calendar Highlight Section --- */
+/* Основной контейнер календаря: фон, отступы, выравнивание */
+.calendar-highlight {
+  text-align: center;            /* Центрирует текст по горизонтали */
+  padding: 60px 20px;            /* Отступы: 60px сверху/снизу, 20px слева/справа */
+  background-color: #c8c1b8;     /* Цвет фона секции (соответствует фону страницы) */
+}
+
+/* Сетка дней календаря: flex-контейнер */
+.calendar-grid {
+  display: flex;                 /* Включает flex-контейнер для сетки */
+  justify-content: center;       /* Центрирует карточки по горизонтали */
+  gap: 40px;                     /* Расстояние 40px между карточками */
+  margin-top: 30px;              /* Отступ сверху перед сеткой дней */
+  flex-wrap: wrap;               /* Переносит карточки на новую строку при необходимости */
+}
+
+/* Карточка одного дня: фон, тень, размер */
+.calendar-day {
+  background-color: #fff;        /* Белый фон карточки */
+  padding: 20px;                 /* Внутренний отступ 20px */
+  border-radius: 10px;           /* Скругление углов радиусом 10px */
+  width: 120px;                  /* Фиксированная ширина карточки */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Легкая тень для объема */
+  font-family: 'Montserrat', sans-serif; /* Шрифт внутри карточки */
+  transition: transform 0.2s ease, box-shadow 0.3s ease; /* Анимация наведения */
+}
+
+/* При наведении увеличивается и усиливается тень */
+.calendar-day:hover {
+  transform: scale(1.05);        /* Увеличение карточки до 105% */
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2); /* Более заметная тень */
+}
+
+/* Название дня недели */
+.calendar-day .weekday {
+  display: block;                /* Блочный элемент */
+  font-size: 14px;               /* Размер шрифта 14px */
+  color: #666;                   /* Цвет текста */
+  margin-bottom: 8px;            /* Отступ снизу до числа */
+}
+
+/* Число дня */
+.calendar-day .day {
+  display: block;                /* Блочный элемент */
+  font-size: 48px;               /* Размер шрифта 48px */
+  font-weight: bold;             /* Жирное начертание */
+  margin: 5px 0;                 /* Отступы сверху/снизу по 5px */
+}
+
+/* Название месяца */
+.calendar-day .month {
+  display: block;                /* Блочный элемент */
+  font-size: 16px;               /* Размер шрифта 16px */
+  color: #999;                   /* Светло-серый цвет текста */
+}
+
+/* Выделенный день: позиционирование для наложения ручного кружка */
+.calendar-day.highlight {
+  position: relative;            /* Относительное позиционирование для ::before */
+  z-index: 1;                    /* Выше остальных элементов */
+}
+
+/* Псевдоэлемент с hand-drawn кружком */
+.calendar-day.highlight::before {
+  content: '';                   /* Пустой элемент */
+  position: absolute;            /* Абсолютное позиционирование внутри карточки */
+  top: -20px;                    /* Сдвиг псевдоэлемента вверх на 10px */
+  left: -35px;                   /* Сдвиг влево на 10px */
+  width: calc(120% + 50px);      /* Ширина карточки + 20px для круга */
+  height: calc(90% + 50px);     /* Высота карточки + 20px для круга */
+  background: url('ooo.svg') no-repeat center center; /* Фон с вашим SVG-кругом */
+  background-size: contain;      /* Масштабирование фона по размеру контейнера */
+  pointer-events: none;          /* Отключает клики по псевдоэлементу */
+}
+.dresscode-image {
+  max-width: 90%;
+  height: auto;
+  margin-top: 2rem;
+  border-radius: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}

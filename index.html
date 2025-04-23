@@ -39,6 +39,27 @@
             <img src="foto4.png" alt="Приглашение фото 2" class="invitation-image">
         </div>
     </section>
+     <!-- Календарь -->
+  <section class="calendar-highlight">
+    <h2>Когда?</h2>
+    <div class="calendar-grid">
+      <div class="calendar-day">
+        <span class="weekday">Суббота</span>
+        <span class="day">21</span>
+        <span class="month">июня</span>
+      </div>
+      <div class="calendar-day highlight">
+        <span class="weekday">Воскресенье</span>
+        <span class="day">22</span>
+        <span class="month">июня</span>
+      </div>
+      <div class="calendar-day">
+        <span class="weekday">Понедельник</span>
+        <span class="day">23</span>
+        <span class="month">июня</span>
+      </div>
+    </div>
+  </section>
 
     <!-- Секция Приглашение (теперь без текста) -->
     <!-- 
@@ -53,7 +74,6 @@
 
     <!-- Секция Программа дня -->
     <section class="schedule">
-        <img src="foto5.png" alt="Фото Программа" class="schedule-image">
         <div class="schedule-content-wrapper">
           <h2>Программа</h2>
           <div class="schedule-items">
@@ -86,20 +106,33 @@
                   </div>
               </div>
           </div>
+          <img src="foto5.png" alt="Фото Программа" class="schedule-image">
         </div>
     </section>
 
     <!-- Секция Место проведения -->
     <section class="location">
         <h2>Место проведения</h2>
-        <p>Мы будем рады видеть вас в ресторане <strong>"Атмосфера"</strong></p>
+        <p>Мы будем рады видеть вас в ресторане <strong>"Atmospherе"</strong></p>
         <p>Адрес: г. Тюмень, ул. Ямская, 22</p>
-        <!-- Сюда можно добавить карту или подробное описание, как добраться -->
-        <div class="how-to-get">
-            <h3>Как добраться?</h3>
-            <p>Рекомендуем воспользоваться услугами такси для вашего удобства.</p>
-            <!-- Можно добавить встроенную карту Google/Yandex -->
-            <!-- <iframe src="URL_КАРТЫ" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe> -->
+        <div class="map-embed">
+            <a class="dg-widget-link" href="http://2gis.ru/tyumen/firm/1830116630099181/center/65.50611019134523,57.1651513730428/zoom/15?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=bigMap">Посмотреть на карте Тюмени</a>
+            <div class="dg-widget-link"><a href="http://2gis.ru/tyumen/firm/1830116630099181/photos/1830116630099181/center/65.50611019134523,57.1651513730428/zoom/17?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=photos">Фотографии компании</a></div>
+            <div class="dg-widget-link"><a href="http://2gis.ru/tyumen/center/65.51049,57.166882/zoom/15/routeTab/rsType/bus/to/65.51049,57.166882╎Atmosphere?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=route">Найти проезд до Atmosphere</a></div>
+            <script charset="utf-8" src="https://widgets.2gis.com/js/DGWidgetLoader.js"></script>
+            <script charset="utf-8">
+              new DGWidgetLoader({
+                "width": "100%",
+                "height": 400,
+                "borderColor":"#a3a3a3",
+                "pos":{"lat":57.1651513730428,"lon":65.50611019134523,"zoom":15},
+                "opt":{"city":"tyumen"},
+                "org":[{"id":"1830116630099181"}]
+              });
+            </script>
+            <noscript style="color:#c00;font-size:16px;font-weight:bold;">
+              Виджет карты использует JavaScript. Включите его в настройках вашего браузера.
+            </noscript>
         </div>
     </section>
 
@@ -113,6 +146,7 @@
             <div class="color-swatch" style="background-color: #F6F5EC;"></div>
         </div>
         <p>Не обязательно использовать все цвета, достаточно одного или нескольких оттенков.</p>
+        <img src="foto6.png" alt="Фото дресс-кода" class="dresscode-image">
     </section>
 
     <!-- Секция RSVP -->
@@ -161,6 +195,7 @@
         <!-- <p><a href="https://wa.me/79129994077" target="_blank">Написать в WhatsApp</a></p> -->
     </section>
 
+
     <!-- Футер -->
     <footer class="site-footer">
         <p>С любовью, Никита и Полина | <span id="current-year"></span></p>
@@ -172,4 +207,4 @@
     </script>
 
 </body>
-</html> 
+</html>
