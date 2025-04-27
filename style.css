@@ -120,19 +120,19 @@ img {
   top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 90%;
   text-align: center;
   z-index: 2;
 }
 
 .hero-content h1 {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 5.5rem;
+  font-size: 5rem; /* Reduced size slightly */
   color: #444;
   font-weight: normal;
   line-height: 1.1;
   margin-bottom: 1rem;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+  white-space: nowrap; /* Prevent wrapping */
 }
 
 .hero-content .date,
@@ -159,8 +159,9 @@ img {
   max-width: 480px;
   width: 90%;
   height: auto;
-  border: none;
+  border: 3px solid #800020; /* Restore burgundy border */
   animation: kenburns 15s ease-out infinite alternate;
+  border-radius: 15px; /* Restore rounded corners */
 }
 
 .hero-text-wrapper {
@@ -631,10 +632,11 @@ img {
   background-color: #fff;
   padding: 20px;
   border-radius: 10px;
-  width: 120px;
+  width: 140px; /* Restore fixed width, slightly wider */
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   font-family: 'Montserrat', sans-serif;
   transition: transform 0.2s ease, box-shadow 0.3s ease;
+  text-align: center;
 }
 
 .calendar-day:hover {
@@ -717,8 +719,8 @@ img {
   top: 0; bottom: 0; width: 60px;
   overflow: hidden;
 }
-.vertical-ticker.left  { left: 0; }
-.vertical-ticker.right { right: 0; }
+.vertical-ticker.left  { left: 20px; }
+.vertical-ticker.right { right: 5px; }
 .vertical-ticker .ticker-content {
   display: inline-block;
   color: #aa2929; /* New requested color */

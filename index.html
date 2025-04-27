@@ -169,8 +169,8 @@
 
     <!-- Секция RSVP -->
     <section class="rsvp fade-up">
-        <h2>Check-in</h2>
-        <p>Пожалуйста, сообщите нам о своем решении до 25 мая 2025.</p>
+        <h2>Подтвердите присутствие</h2>
+        <p>Пожалуйста, сообщите нам о своем решении до [Укажите дату, например, 1 июня 2025] года.</p>
         <form id="rsvp-form">
             <div class="form-group">
                 <label for="guest-name">Ваше имя и фамилия:</label>
@@ -192,16 +192,17 @@
             <div class="form-group">
                 <fieldset>
                     <legend>Предпочтения по алкогольным напиткам (можно выбрать несколько):</legend>
-                    <label><input type="checkbox" name="drinks" value="wine"> Вино</label>
-                    <label><input type="checkbox" name="drinks" value="whiskey"> Виски</label>
-                    <label><input type="checkbox" name="drinks" value="vodka"> Водка</label>
-                    <label><input type="checkbox" name="drinks" value="champagne"> Шампанское</label>
-                    <label><input type="checkbox" name="drinks" value="non-alcoholic"> Безалкогольные напитки</label>
+                    <label><input type="checkbox" id="drink-wine" name="drinks" value="wine"> Вино</label>
+                    <label><input type="checkbox" id="drink-whiskey" name="drinks" value="whiskey"> Виски</label>
+                    <label><input type="checkbox" id="drink-vodka" name="drinks" value="vodka"> Водка</label>
+                    <label><input type="checkbox" id="drink-champagne" name="drinks" value="champagne"> Шампанское</label>
+                    <label><input type="checkbox" id="drink-non-alcoholic" name="drinks" value="non-alcoholic"> Безалкогольные напитки</label>
                 </fieldset>
             </div>
 
             <button type="submit" class="submit-button">Отправить ответ</button>
         </form>
+        <p id="form-status" style="margin-top: 1rem; font-weight: 500;"></p>
     </section>
 
     <!-- Секция Контакты -->
@@ -220,23 +221,8 @@
         <p>С любовью, Никита и Полина | <span id="current-year"></span></p>
     </footer>
 
-    <!-- Небольшой скрипт для отображения текущего года -->
-    <script>
-        document.getElementById('current-year').textContent = new Date().getFullYear();
-    </script>
+    <!-- Link the external script -->
+    <script src="script.js"></script>
 
 </body>
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const io = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.2 });
-    document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
-  });
-</script>
 </html>
