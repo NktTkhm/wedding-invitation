@@ -24,8 +24,8 @@
     </header>
 
     <!-- Секция Приветствие -->
-    <section class="welcome-message">
-        
+    <section class="welcome-message fade-up">
+
         <div class="welcome-text-content">
           <h2>Дорогие наши родные и друзья!</h2>
           <p>С огромной радостью мы хотим поделиться важным событием – мы создаем семью!</p>
@@ -33,15 +33,25 @@
           <p>Приглашаем вас стать свидетелями начала нашей совместной истории<br>
              и отпраздновать вместе с нами рождение нашей семьи.</p>
         </div>
-        
+
         <div class="welcome-images-container">
             <img src="foto3.png" alt="Приглашение фото 1" class="invitation-image">
             <img src="foto4.png" alt="Приглашение фото 2" class="invitation-image">
         </div>
     </section>
-     <!-- Календарь -->
-  <section class="calendar-highlight">
+ <!-- Календарь -->
+  <section class="calendar-highlight fade-up">
     <h2>Когда?</h2>
+
+    <!-- Бегущие строки -->
+    <div class="vertical-ticker left">
+      <div class="ticker-content">
+        LOVE . ЛЮБОВЬ . AMOUR . LIEBE • LOVE . ЛЮБОВЬ . AMOUR . LIEBE • LOVE . ЛЮБОВЬ . AMOUR . LIEBE
+        <br>•<br> <!-- Separator -->
+        LOVE . ЛЮБОВЬ . AMOUR . LIEBE • LOVE . ЛЮБОВЬ . AMOUR . LIEBE • LOVE . ЛЮБОВЬ . AMOUR . LIEBE
+      </div>
+    </div>
+
     <div class="calendar-grid">
       <div class="calendar-day">
         <span class="weekday">Суббота</span>
@@ -59,40 +69,48 @@
         <span class="month">июня</span>
       </div>
     </div>
+
+    <div class="vertical-ticker right">
+      <div class="ticker-content">
+        LOVE . ЛЮБОВЬ . AMOUR . LIEBE • LOVE . ЛЮБОВЬ . AMOUR . LIEBE • LOVE . ЛЮБОВЬ . AMOUR . LIEBE
+        <br>•<br> <!-- Separator -->
+        LOVE . ЛЮБОВЬ . AMOUR . LIEBE • LOVE . ЛЮБОВЬ . AMOUR . LIEBE • LOVE . ЛЮБОВЬ . AMOUR . LIEBE
+      </div>
+    </div>
   </section>
 
     <!-- Секция Приглашение (теперь без текста) -->
-    <!-- 
+    <!--
     <section class="invitation">
         <div class="invitation-container">
             <img src="foto3.png" alt="Приглашение фото 1" class="invitation-image invitation-image-left">
-            
+
             <img src="foto4.png" alt="Приглашение фото 2" class="invitation-image invitation-image-right">
         </div>
     </section>
     -->
 
     <!-- Секция Программа дня -->
-    <section class="schedule">
+    <section class="schedule fade-up">
         <div class="schedule-content-wrapper">
           <h2>Программа</h2>
           <div class="schedule-items">
               <div class="schedule-item">
-                  <p class="time">15:00</p>
+                  <p class="time">16:30</p>
                   <div class="event-details">
                     <p class="event">Welcome-зона</p>
                     <p class="details">Время для приветствий и легких закусок.</p>
                   </div>
               </div>
               <div class="schedule-item">
-                  <p class="time">16:00</p>
+                  <p class="time">17:00</p>
                   <div class="event-details">
                     <p class="event">Церемония</p>
                     <p class="details">Самый трогательный момент дня.</p>
                   </div>
               </div>
               <div class="schedule-item">
-                  <p class="time">17:00</p>
+                  <p class="time">18:00</p>
                   <div class="event-details">
                     <p class="event">Свадебный фуршет</p>
                     <p class="details">Время вкусной еды, поздравлений и танцев!</p>
@@ -111,8 +129,8 @@
     </section>
 
     <!-- Секция Место проведения -->
-    <section class="location">
-        <h2>Место проведения</h2>
+    <section class="location fade-up">
+        <h2>Локация</h2>
         <p>Мы будем рады видеть вас в ресторане <strong>"Atmospherе"</strong></p>
         <p>Адрес: г. Тюмень, ул. Ямская, 22</p>
         <div class="map-embed">
@@ -137,7 +155,7 @@
     </section>
 
     <!-- Секция Dress Code -->
-    <section class="dress-code">
+    <section class="dress-code fade-up">
         <h2>Dress Code</h2>
         <p>Мы будем благодарны, если вы поддержите стиль нашей свадьбы и выберете наряды в предложенной цветовой гамме.</p>
         <div class="color-palette">
@@ -150,9 +168,9 @@
     </section>
 
     <!-- Секция RSVP -->
-    <section class="rsvp">
-        <h2>Подтвердите присутствие</h2>
-        <p>Пожалуйста, сообщите нам о своем решении до [Укажите дату, например, 1 июня 2025] года.</p>
+    <section class="rsvp fade-up">
+        <h2>Check-in</h2>
+        <p>Пожалуйста, сообщите нам о своем решении до 25 мая 2025.</p>
         <form id="rsvp-form">
             <div class="form-group">
                 <label for="guest-name">Ваше имя и фамилия:</label>
@@ -191,6 +209,7 @@
         <h2>Остались вопросы?</h2>
         <p>Будем рады ответить на них!</p>
         <p>Никита: <a href="tel:+79129994077">+7 (912) 999-40-77</a></p>
+        <p>Полина: <a href="tel:+79923041618">+7 (992) 304-16-18</a></p>
         <!-- Можно добавить ссылку на мессенджер, например WhatsApp -->
         <!-- <p><a href="https://wa.me/79129994077" target="_blank">Написать в WhatsApp</a></p> -->
     </section>
@@ -207,4 +226,17 @@
     </script>
 
 </body>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const io = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+    document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
+  });
+</script>
 </html>
