@@ -111,37 +111,35 @@ document.addEventListener('DOMContentLoaded', () => {
     const toggleButton = document.getElementById('music-toggle-button');
 
     if (music && toggleButton) {
-        // Check if audio is ready before adding listener
-        const setupMusicControls = () => {
-            toggleButton.addEventListener('click', () => {
-                if (music.paused) {
-                    // Attempt to play
-                    music.play().then(() => {
-                        // Success
-                        toggleButton.textContent = '⏸️'; // Pause icon
-                    }).catch(error => {
-                        console.error("Music play failed:", error);
-                        // Optionally notify user that interaction is needed
-                        // alert("Не удалось включить музыку автоматически. Нажмите кнопку еще раз."); 
-                    });
-                } else {
-                    music.pause();
-                    toggleButton.textContent = '🎵'; // Play icon
-                }
-            });
+        // Simplified setup: Attach listener directly
+        // No check for readyState or canplay event
+        toggleButton.addEventListener('click', () => {
+            if (music.paused) {
+                // Attempt to play
+                music.play().then(() => {
+                    // Success
+                    toggleButton.textContent = '⏸️'; // Pause icon
+                }).catch(error => {
+                    console.error("Music play failed (could be initial block or load error):", error);
+                    // Keep play icon if failed
+                    toggleButton.textContent = '🎵'; 
+                    // Optionally notify user that interaction might be needed again
+                    // if (error.name === 'NotAllowedError') { 
+                    //     alert("Браузер заблокировал авто-воспроизведение. Попробуйте нажать еще раз."); 
+                    // } 
+                });
+            } else {
+                music.pause();
+                toggleButton.textContent = '🎵'; // Play icon
+            }
+        });
 
-            // Update button icon based on actual audio state
-            music.onpause = () => { toggleButton.textContent = '🎵'; };
-            music.onplaying = () => { toggleButton.textContent = '⏸️'; }; // Use onplaying for more reliability
-            music.onended = () => { toggleButton.textContent = '🎵'; }; // Handle if loop is off or fails
-        };
-
-        // Check if audio metadata is loaded, or wait for it
-        if (music.readyState >= 2) { // HAVE_CURRENT_DATA or more
-             setupMusicControls();
-        } else {
-             music.addEventListener('canplay', setupMusicControls, { once: true });
-        }
+        // Update button icon based on actual audio state
+        music.onpause = () => { toggleButton.textContent = '🎵'; };
+        music.onplaying = () => { toggleButton.textContent = '⏸️'; }; // Use onplaying for more reliability
+        music.onended = () => { toggleButton.textContent = '🎵'; }; // Handle if loop is off or fails
+        
+        // Removed the setupMusicControls function and readyState/canplay checks
     }
     // --- End Music Toggle Button ---
 

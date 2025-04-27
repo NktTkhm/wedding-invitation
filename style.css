@@ -380,6 +380,7 @@ img {
 
 /* --- RSVP Section --- */
 .rsvp {
+  /* No specific padding rules needed here if inheriting from section */
 }
 
 .rsvp p {
@@ -476,7 +477,12 @@ img {
 
 /* --- Contacts Section --- */
 .contacts {
-  position: relative; /* Add positioning context */
+  position: relative; /* Keep positioning context if needed elsewhere, otherwise remove */
+  /* Remove negative margin and border override */
+  /* margin-top: -4rem; */ 
+  /* border-top: none; */
+  /* Let section padding apply (or restore specific padding if needed) */
+  /* padding: 2rem 2rem 5rem 2rem; */ 
 }
 
 /* Remove styles for the image wrapper and image */
