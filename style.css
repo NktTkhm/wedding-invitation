@@ -294,6 +294,7 @@ img {
 
 .schedule-item .event-details {
   flex-grow: 1;
+  text-align: center;
 }
 
 .schedule-item .event {
@@ -301,7 +302,7 @@ img {
   font-size: 1.2rem;
   font-weight: 500;
   color: #444;
-  margin: 0 0 0.3rem 0;
+  margin-bottom: 0.3rem;
   text-align: center;
 }
 
@@ -845,4 +846,39 @@ img {
 /* Ensure base styles for main content are visible by default */
 #main-content {
   display: block; /* Or whatever its default display type should be */
+}
+
+/* --- Music Toggle Button Styles --- */
+#music-toggle-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  cursor: pointer;
+  /* Added for potential conflict resolution */
+  transform: translateZ(0); /* Force hardware acceleration / new stacking context */
+}
+
+/* --- Music Prompt Styles --- */
+#music-prompt {
+  position: fixed;
+  bottom: 25px; /* Align near the button */
+  right: 70px; /* Position to the left of the button */
+  z-index: 99; /* Below the button slightly */
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-family: 'Montserrat', sans-serif;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+  pointer-events: none; /* Prevent interacting with it */
 }

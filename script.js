@@ -24,6 +24,31 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     // --- End Device Type Detection ---
 
+    const musicPrompt = document.getElementById('music-prompt');
+    let promptTimeout;
+
+    // Function to hide the prompt
+    const hideMusicPrompt = () => {
+        if (musicPrompt) {
+            musicPrompt.style.opacity = '0';
+            musicPrompt.style.visibility = 'hidden';
+        }
+        if (promptTimeout) {
+            clearTimeout(promptTimeout);
+        }
+    };
+
+    // Show prompt on load (if it exists)
+    if (musicPrompt) {
+        // Small delay to ensure transition works
+        setTimeout(() => {
+            musicPrompt.style.opacity = '1';
+            musicPrompt.style.visibility = 'visible';
+        }, 100);
+        // Set timeout to hide automatically
+        promptTimeout = setTimeout(hideMusicPrompt, 8000); // Hide after 8 seconds
+    }
+
     // Intersection Observer for fade-up animation
     const observerOptions = {
         threshold: 0.2 // Trigger when 20% of the element is visible
@@ -112,8 +137,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (music && toggleButton) {
         // Simplified setup: Attach listener directly
-        // No check for readyState or canplay event
         toggleButton.addEventListener('click', () => {
+            // Hide prompt immediately when button is clicked
+            hideMusicPrompt(); 
+
             if (music.paused) {
                 // Attempt to play
                 music.play().then(() => {
