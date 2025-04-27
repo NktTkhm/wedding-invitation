@@ -10,219 +10,235 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header class="hero">
-        <div class="hero-content">
-            
-            <img src="foto2.jpeg" alt="Никита и Полина фото" class="hero-photo">
-            <div class="hero-text-wrapper"> 
-              <h1>Никита и Полина</h1>
-              
-              <p class="subtitle">неСлучайные*</p>
+    <!-- Desktop QR Code Overlay (hidden by default) -->
+    <div id="desktop-qr-overlay">
+        <div class="qr-content">
+            <p>Для просмотра сайта-приглашения<br>наведите камеру на QR-код</p>
+            <img src="qr-code.png" alt="QR Code for mobile site">
+        </div>
+    </div>
+
+    <!-- Main site content (visible by default) -->
+    <main id="main-content">
+        <header class="hero">
+            <div class="hero-content">
+                
+                <img src="foto2.jpeg" alt="Никита и Полина фото" class="hero-photo">
+                <div class="hero-text-wrapper"> 
+                  <h1 style="white-space: nowrap;">Никита и Полина</h1>
+                  
+                  <p class="subtitle">неСлучайные*</p>
+                </div>
+                
             </div>
-            
-        </div>
-    </header>
+        </header>
 
-    <!-- Секция Приветствие -->
-    <section class="welcome-message fade-up">
+        <!-- Секция Приветствие -->
+        <section class="welcome-message fade-up">
+            <div class="welcome-text-content">
+              <h2>Дорогие наши родные и друзья!</h2>
+              <p>С огромной радостью мы хотим поделиться важным событием – мы создаем семью!</p>
+              <p>Этот день мы мечтаем разделить с самыми близкими и любимыми людьми.</p>
+              <p>Приглашаем вас стать свидетелями начала нашей совместной истории<br>
+                 и отпраздновать вместе с нами рождение нашей семьи.</p>
+            </div>
 
-        <div class="welcome-text-content">
-          <h2>Дорогие наши родные и друзья!</h2>
-          <p>С огромной радостью мы хотим поделиться важным событием – мы создаем семью!</p>
-          <p>Этот день мы мечтаем разделить с самыми близкими и любимыми людьми.</p>
-          <p>Приглашаем вас стать свидетелями начала нашей совместной истории<br>
-             и отпраздновать вместе с нами рождение нашей семьи.</p>
-        </div>
+            <div class="welcome-images-container">
+                <img src="foto3.png" alt="Приглашение фото 1" class="invitation-image">
+                <img src="foto4.png" alt="Приглашение фото 2" class="invitation-image">
+            </div>
+        </section>
+     <!-- Календарь -->
+      <section class="calendar-highlight fade-up">
+        <h2>Когда?</h2>
 
-        <div class="welcome-images-container">
-            <img src="foto3.png" alt="Приглашение фото 1" class="invitation-image">
-            <img src="foto4.png" alt="Приглашение фото 2" class="invitation-image">
-        </div>
-    </section>
- <!-- Календарь -->
-  <section class="calendar-highlight fade-up">
-    <h2>Когда?</h2>
-
-    <!-- Бегущие строки -->
-    <div class="vertical-ticker left">
-      <div class="ticker-content">
-        LOVE . ЛЮБОВЬ . AMOUR . LIEBE • LOVE . ЛЮБОВЬ . AMOUR . LIEBE • LOVE . ЛЮБОВЬ . AMOUR . LIEBE
-        <br>•<br> <!-- Separator -->
-        LOVE . ЛЮБОВЬ . AMOUR . LIEBE • LOVE . ЛЮБОВЬ . AMOUR . LIEBE • LOVE . ЛЮБОВЬ . AMOUR . LIEBE
-      </div>
-    </div>
-
-    <div class="calendar-grid">
-      <div class="calendar-day">
-        <span class="weekday">Суббота</span>
-        <span class="day">21</span>
-        <span class="month">июня</span>
-      </div>
-      <div class="calendar-day highlight">
-        <span class="weekday">Воскресенье</span>
-        <span class="day">22</span>
-        <span class="month">июня</span>
-      </div>
-      <div class="calendar-day">
-        <span class="weekday">Понедельник</span>
-        <span class="day">23</span>
-        <span class="month">июня</span>
-      </div>
-    </div>
-
-    <div class="vertical-ticker right">
-      <div class="ticker-content">
-        LOVE . ЛЮБОВЬ . AMOUR . LIEBE • LOVE . ЛЮБОВЬ . AMOUR . LIEBE • LOVE . ЛЮБОВЬ . AMOUR . LIEBE
-        <br>•<br> <!-- Separator -->
-        LOVE . ЛЮБОВЬ . AMOUR . LIEBE • LOVE . ЛЮБОВЬ . AMOUR . LIEBE • LOVE . ЛЮБОВЬ . AMOUR . LIEBE
-      </div>
-    </div>
-  </section>
-
-    <!-- Секция Приглашение (теперь без текста) -->
-    <!--
-    <section class="invitation">
-        <div class="invitation-container">
-            <img src="foto3.png" alt="Приглашение фото 1" class="invitation-image invitation-image-left">
-
-            <img src="foto4.png" alt="Приглашение фото 2" class="invitation-image invitation-image-right">
-        </div>
-    </section>
-    -->
-
-    <!-- Секция Программа дня -->
-    <section class="schedule fade-up">
-        <div class="schedule-content-wrapper">
-          <h2>Программа</h2>
-          <div class="schedule-items">
-              <div class="schedule-item">
-                  <p class="time">16:30</p>
-                  <div class="event-details">
-                    <p class="event">Welcome-зона</p>
-                    <p class="details">Время для приветствий и легких закусок.</p>
-                  </div>
-              </div>
-              <div class="schedule-item">
-                  <p class="time">17:00</p>
-                  <div class="event-details">
-                    <p class="event">Церемония</p>
-                    <p class="details">Самый трогательный момент дня.</p>
-                  </div>
-              </div>
-              <div class="schedule-item">
-                  <p class="time">18:00</p>
-                  <div class="event-details">
-                    <p class="event">Свадебный фуршет</p>
-                    <p class="details">Время вкусной еды, поздравлений и танцев!</p>
-                  </div>
-              </div>
-              <div class="schedule-item">
-                  <p class="time">23:00</p>
-                  <div class="event-details">
-                    <p class="event">Окончание фуршета</p>
-                    <p class="details">Завершение официальной части вечера.</p>
-                  </div>
-              </div>
+        <!-- Бегущие строки -->
+        <div class="vertical-ticker left">
+          <div class="ticker-content">
+            LOVE . ЛЮБОВЬ . AMOUR . LIEBE • LOVE . ЛЮБОВЬ . AMOUR . LIEBE • LOVE . ЛЮБОВЬ . AMOUR . LIEBE
+            <br>•<br> <!-- Separator -->
+            LOVE . ЛЮБОВЬ . AMOUR . LIEBE • LOVE . ЛЮБОВЬ . AMOUR . LIEBE • LOVE . ЛЮБОВЬ . AMOUR . LIEBE
           </div>
-          <img src="foto5.png" alt="Фото Программа" class="schedule-image">
         </div>
-    </section>
 
-    <!-- Секция Место проведения -->
-    <section class="location fade-up">
-        <h2>Локация</h2>
-        <p>Мы будем рады видеть вас в ресторане <strong>"Atmospherе"</strong></p>
-        <p>Адрес: г. Тюмень, ул. Ямская, 22</p>
-        <div class="map-embed">
-            <a class="dg-widget-link" href="http://2gis.ru/tyumen/firm/1830116630099181/center/65.50611019134523,57.1651513730428/zoom/15?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=bigMap">Посмотреть на карте Тюмени</a>
-            <div class="dg-widget-link"><a href="http://2gis.ru/tyumen/firm/1830116630099181/photos/1830116630099181/center/65.50611019134523,57.1651513730428/zoom/17?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=photos">Фотографии компании</a></div>
-            <div class="dg-widget-link"><a href="http://2gis.ru/tyumen/center/65.51049,57.166882/zoom/15/routeTab/rsType/bus/to/65.51049,57.166882╎Atmosphere?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=route">Найти проезд до Atmosphere</a></div>
-            <script charset="utf-8" src="https://widgets.2gis.com/js/DGWidgetLoader.js"></script>
-            <script charset="utf-8">
-              new DGWidgetLoader({
-                "width": "100%",
-                "height": 400,
-                "borderColor":"#a3a3a3",
-                "pos":{"lat":57.1651513730428,"lon":65.50611019134523,"zoom":15},
-                "opt":{"city":"tyumen"},
-                "org":[{"id":"1830116630099181"}]
-              });
-            </script>
-            <noscript style="color:#c00;font-size:16px;font-weight:bold;">
-              Виджет карты использует JavaScript. Включите его в настройках вашего браузера.
-            </noscript>
+        <div class="calendar-grid">
+          <div class="calendar-day">
+            <span class="weekday">Суббота</span>
+            <span class="day">21</span>
+            <span class="month">июня</span>
+          </div>
+          <div class="calendar-day highlight">
+            <span class="weekday">Воскресенье</span>
+            <span class="day">22</span>
+            <span class="month">июня</span>
+          </div>
+          <div class="calendar-day">
+            <span class="weekday">Понедельник</span>
+            <span class="day">23</span>
+            <span class="month">июня</span>
+          </div>
         </div>
-    </section>
 
-    <!-- Секция Dress Code -->
-    <section class="dress-code fade-up">
-        <h2>Dress Code</h2>
-        <p>Мы будем благодарны, если вы поддержите стиль нашей свадьбы и выберете наряды в предложенной цветовой гамме.</p>
-        <div class="color-palette">
-            <div class="color-swatch" style="background-color: #B29079;"></div>
-            <div class="color-swatch" style="background-color: #E1DACA;"></div>
-            <div class="color-swatch" style="background-color: #F6F5EC;"></div>
+        <div class="vertical-ticker right">
+          <div class="ticker-content">
+            LOVE . ЛЮБОВЬ . AMOUR . LIEBE • LOVE . ЛЮБОВЬ . AMOUR . LIEBE • LOVE . ЛЮБОВЬ . AMOUR . LIEBE
+            <br>•<br> <!-- Separator -->
+            LOVE . ЛЮБОВЬ . AMOUR . LIEBE • LOVE . ЛЮБОВЬ . AMOUR . LIEBE • LOVE . ЛЮБОВЬ . AMOUR . LIEBE
+          </div>
         </div>
-        <p>Не обязательно использовать все цвета, достаточно одного или нескольких оттенков.</p>
-        <img src="foto6.png" alt="Фото дресс-кода" class="dresscode-image">
-    </section>
+      </section>
 
-    <!-- Секция RSVP -->
-    <section class="rsvp fade-up">
-        <h2>Check-in</h2>
-        <p>Пожалуйста, сообщите нам о своем решении до 25 мая 2025 года.</p>
-        <form id="rsvp-form">
-            <div class="form-group">
-                <label for="guest-name">Ваше имя и фамилия:</label>
-                <input type="text" id="guest-name" name="guestName" required>
+        <!-- Секция Приглашение (теперь без текста) -->
+        <!--
+        <section class="invitation">
+            <div class="invitation-container">
+                <img src="foto3.png" alt="Приглашение фото 1" class="invitation-image invitation-image-left">
+
+                <img src="foto4.png" alt="Приглашение фото 2" class="invitation-image invitation-image-right">
             </div>
+        </section>
+        -->
 
-            <div class="form-group">
-                <fieldset>
-                    <legend>Сможете ли вы присутствовать?</legend>
-                    <label>
-                        <input type="radio" name="attendance" value="yes" required> Да, с радостью приду!
-                    </label>
-                    <label>
-                        <input type="radio" name="attendance" value="no"> К сожалению, не смогу
-                    </label>
-                </fieldset>
+        <!-- Секция Программа дня -->
+        <section class="schedule fade-up">
+            <div class="schedule-content-wrapper">
+              <h2>Программа</h2>
+              <div class="schedule-items">
+                  <div class="schedule-item">
+                      <p class="time">16:30</p>
+                      <div class="event-details">
+                        <p class="event">Welcome-зона</p>
+                        <p class="details">Время для приветствий и легких закусок.</p>
+                      </div>
+                  </div>
+                  <div class="schedule-item">
+                      <p class="time">17:00</p>
+                      <div class="event-details">
+                        <p class="event">Церемония</p>
+                        <p class="details">Самый трогательный момент дня.</p>
+                      </div>
+                  </div>
+                  <div class="schedule-item">
+                      <p class="time">18:00</p>
+                      <div class="event-details">
+                        <p class="event">Свадебный фуршет</p>
+                        <p class="details">Время вкусной еды, поздравлений и танцев!</p>
+                      </div>
+                  </div>
+                  <div class="schedule-item">
+                      <p class="time">23:00</p>
+                      <div class="event-details">
+                        <p class="event">Окончание фуршета</p>
+                        <p class="details">Завершение официальной части вечера.</p>
+                      </div>
+                  </div>
+              </div>
+              <img src="foto5.png" alt="Фото Программа" class="schedule-image">
             </div>
+        </section>
 
-            <div class="form-group">
-                <fieldset>
-                    <legend>Предпочтения по алкогольным напиткам (можно выбрать несколько):</legend>
-                    <label><input type="checkbox" id="drink-wine" name="drinks" value="wine"> Вино</label>
-                    <label><input type="checkbox" id="drink-whiskey" name="drinks" value="whiskey"> Виски</label>
-                    <label><input type="checkbox" id="drink-vodka" name="drinks" value="vodka"> Водка</label>
-                    <label><input type="checkbox" id="drink-champagne" name="drinks" value="champagne"> Шампанское</label>
-                    <label><input type="checkbox" id="drink-non-alcoholic" name="drinks" value="non-alcoholic"> Безалкогольные напитки</label>
-                </fieldset>
+        <!-- Секция Место проведения -->
+        <section class="location fade-up">
+            <h2>Место проведения</h2>
+            <p>Мы будем рады видеть вас в ресторане <strong>"Atmospherе"</strong></p>
+            <p>Адрес: г. Тюмень, ул. Ямская, 22</p>
+            <div class="map-embed">
+                <a class="dg-widget-link" href="http://2gis.ru/tyumen/firm/1830116630099181/center/65.50611019134523,57.1651513730428/zoom/15?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=bigMap">Посмотреть на карте Тюмени</a>
+                <div class="dg-widget-link"><a href="http://2gis.ru/tyumen/firm/1830116630099181/photos/1830116630099181/center/65.50611019134523,57.1651513730428/zoom/17?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=photos">Фотографии компании</a></div>
+                <div class="dg-widget-link"><a href="http://2gis.ru/tyumen/center/65.51049,57.166882/zoom/15/routeTab/rsType/bus/to/65.51049,57.166882╎Atmosphere?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=route">Найти проезд до Atmosphere</a></div>
+                <script charset="utf-8" src="https://widgets.2gis.com/js/DGWidgetLoader.js"></script>
+                <script charset="utf-8">
+                  new DGWidgetLoader({
+                    "width": "100%",
+                    "height": 400,
+                    "borderColor":"#a3a3a3",
+                    "pos":{"lat":57.1651513730428,"lon":65.50611019134523,"zoom":15},
+                    "opt":{"city":"tyumen"},
+                    "org":[{"id":"1830116630099181"}]
+                  });
+                </script>
+                <noscript style="color:#c00;font-size:16px;font-weight:bold;">
+                  Виджет карты использует JavaScript. Включите его в настройках вашего браузера.
+                </noscript>
             </div>
+        </section>
 
-            <button type="submit" class="submit-button">Отправить ответ</button>
-        </form>
-        <p id="form-status" style="margin-top: 1rem; font-weight: 500;"></p>
-    </section>
+        <!-- Секция Dress Code -->
+        <section class="dress-code fade-up">
+            <h2>Dress Code</h2>
+            <p>Мы будем благодарны, если вы поддержите стиль нашей свадьбы и выберете наряды в предложенной цветовой гамме.</p>
+            <div class="color-palette">
+                <div class="color-swatch" style="background-color: #B29079;"></div>
+                <div class="color-swatch" style="background-color: #E1DACA;"></div>
+                <div class="color-swatch" style="background-color: #F6F5EC;"></div>
+            </div>
+            <p>Не обязательно использовать все цвета, достаточно одного или нескольких оттенков.</p>
+            <img src="foto6.png" alt="Фото дресс-кода" class="dresscode-image">
+        </section>
 
-    <!-- Секция Контакты -->
-    <section class="contacts">
-        <h2>Остались вопросы?</h2>
-        <p>Будем рады ответить на них!</p>
-        <p>Никита: <a href="tel:+79129994077">+7 (912) 999-40-77</a></p>
-        <p>Полина: <a href="tel:+79923041618">+7 (992) 304-16-18</a></p>
-        <!-- Можно добавить ссылку на мессенджер, например WhatsApp -->
-        <!-- <p><a href="https://wa.me/79129994077" target="_blank">Написать в WhatsApp</a></p> -->
-    </section>
+        <!-- Секция RSVP -->
+        <section class="rsvp fade-up">
+            <h2>Подтвердите присутствие</h2>
+            <p>Пожалуйста, сообщите нам о своем решении до 25 мая 2025 года.</p>
+            <form id="rsvp-form">
+                <div class="form-group">
+                    <label for="guest-name">Ваше имя и фамилия:</label>
+                    <input type="text" id="guest-name" name="guestName" required>
+                </div>
+
+                <div class="form-group">
+                    <fieldset>
+                        <legend>Сможете ли вы присутствовать?</legend>
+                        <label>
+                            <input type="radio" name="attendance" value="yes" required> Да, с радостью приду!
+                        </label>
+                        <label>
+                            <input type="radio" name="attendance" value="no"> К сожалению, не смогу
+                        </label>
+                    </fieldset>
+                </div>
+
+                <div class="form-group">
+                    <fieldset>
+                        <legend>Предпочтения по алкогольным напиткам (можно выбрать несколько):</legend>
+                        <label><input type="checkbox" id="drink-wine" name="drinks" value="wine"> Вино</label>
+                        <label><input type="checkbox" id="drink-whiskey" name="drinks" value="whiskey"> Виски</label>
+                        <label><input type="checkbox" id="drink-vodka" name="drinks" value="vodka"> Водка</label>
+                        <label><input type="checkbox" id="drink-champagne" name="drinks" value="champagne"> Шампанское</label>
+                        <label><input type="checkbox" id="drink-non-alcoholic" name="drinks" value="non-alcoholic"> Безалкогольные напитки</label>
+                    </fieldset>
+                </div>
+
+                <button type="submit" class="submit-button">Отправить ответ</button>
+            </form>
+            <p id="form-status" style="margin-top: 1rem; font-weight: 500;"></p>
+        </section>
+
+        <!-- Секция Контакты -->
+        <section class="contacts">
+            <h2>Остались вопросы?</h2>
+            <p>Будем рады ответить на них!</p>
+            <p>Никита: <a href="tel:+79129994077">+7 (912) 999-40-77</a></p>
+            <!-- Можно добавить ссылку на мессенджер, например WhatsApp -->
+            <!-- <p><a href="https://wa.me/79129994077" target="_blank">Написать в WhatsApp</a></p> -->
+            <!-- Add postscriptum -->
+            <p style="font-style: italic; margin-top: 2rem; font-size: 0.95rem;">P.S. Этот сайт мы разработали своими руками с любовью для наших гостей ❤️</p>
+        </section>
 
 
-    <!-- Футер -->
-    <footer class="site-footer">
-        <p>С любовью, Никита и Полина | <span id="current-year"></span></p>
-    </footer>
+        <!-- Футер -->
+        <footer class="site-footer">
+            <p>С любовью, Никита и Полина | <span id="current-year"></span></p>
+        </footer>
 
-    <!-- Link the external script -->
-    <script src="script.js"></script>
+        <!-- Link the external script -->
+        <script src="script.js"></script>
+
+        <!-- Background Music Elements -->
+        <audio id="bg-music" src="background-music.mp3" loop preload="auto"></audio>
+        <button id="music-toggle-button" style="position: fixed; bottom: 20px; right: 20px; z-index: 100; background: rgba(255,255,255,0.7); border: 1px solid #ccc; border-radius: 50%; width: 40px; height: 40px; font-size: 20px; cursor: pointer;">🎵</button>
+
+    </main> <!-- Close main content wrapper -->
 
 </body>
 </html>

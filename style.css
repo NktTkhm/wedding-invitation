@@ -171,7 +171,36 @@ img {
 /* --- Welcome Message Section --- */
 .welcome-message {
   border-top: 1px solid #a8a198;
+  position: relative; /* Add positioning context for pseudo-elements */
+  overflow: hidden; /* Prevent pseudo-elements from overflowing if large */
 }
+
+/* Remove Decorative elements for Welcome Message */
+/*
+.welcome-message::before,
+.welcome-message::after {
+  content: '';
+  position: absolute;
+  width: 150px; 
+  height: 150px; 
+  background: url('flower.png') no-repeat center center;
+  background-size: contain;
+  opacity: 0.15; 
+  pointer-events: none; 
+  z-index: -1; 
+}
+
+.welcome-message::before {
+  top: 1rem; 
+  left: 1rem;
+}
+
+.welcome-message::after {
+  bottom: 1rem; 
+  right: 1rem;
+  transform: rotate(180deg); 
+}
+*/
 
 .welcome-text-content {
   text-align: center;
@@ -447,7 +476,26 @@ img {
 
 /* --- Contacts Section --- */
 .contacts {
+  position: relative; /* Add positioning context */
 }
+
+/* Remove styles for the image wrapper and image */
+/*
+.contacts-image-wrapper {
+  max-width: 150px; 
+  width: 30%; 
+  transform: rotate(-30deg); 
+  position: absolute;
+  top: 1rem; 
+  left: 1rem; 
+}
+
+.contacts-image {
+  display: block; 
+  height: auto; 
+  width: 100%; 
+}
+*/
 
 .contacts p {
   font-size: 1.1rem;
@@ -699,7 +747,8 @@ img {
   to   { transform: scale(1.1) rotate(10deg) translateY(-5%); }
 }
 
-/* --- Decorative Flowers --- */
+/* Remove Decorative Flowers for Calendar */
+/*
 .calendar-highlight::before,
 .calendar-highlight::after {
   content: '';
@@ -712,6 +761,7 @@ img {
 }
 .calendar-highlight::before { top: 10px; left: 10px; }
 .calendar-highlight::after  { bottom: 10px; right: 10px; transform: rotate(180deg); }
+*/
 
 /* --- Vertical Ticker --- */
 .vertical-ticker {
@@ -735,4 +785,58 @@ img {
 @keyframes ticker-move-vertical {
   from { transform: translateY(0); }
   to { transform: translateY(-50%); } /* Move by half the height for seamless loop */
+}
+
+/* --- QR Code Overlay Styles --- */
+#desktop-qr-overlay {
+  display: none; /* Hidden by default */
+  position: fixed; /* Cover the whole screen */
+  inset: 0;
+  background-color: #cec6bd; /* Match body background */
+  color: #333;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 100; /* Ensure it's on top */
+  padding: 2rem;
+}
+
+#desktop-qr-overlay .qr-content p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.5rem; /* Larger text */
+  margin-bottom: 2rem;
+  line-height: 1.4;
+  max-width: 400px;
+}
+
+#desktop-qr-overlay .qr-content img {
+  display: block;
+  max-width: 250px; /* Adjust QR code size */
+  width: 80%;
+  height: auto;
+  margin: 0 auto;
+  border: 5px solid white;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  /* Override global img transform/animation */
+  transform: none !important;
+  animation: none !important;
+}
+
+/* --- Remove Media Query for Desktop --- */
+/*
+@media screen and (min-width: 768px) {
+  #main-content {
+    display: none;
+  }
+  #desktop-qr-overlay {
+    display: flex; 
+  }
+}
+*/
+
+/* Ensure base styles for main content are visible by default */
+#main-content {
+  display: block; /* Or whatever its default display type should be */
 }

@@ -1,4 +1,29 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // --- Device Type Detection (Show QR on Desktop) ---
+    const mainContent = document.getElementById('main-content');
+    const qrOverlay = document.getElementById('desktop-qr-overlay');
+
+    // Check if the primary input method is a mouse
+    // Use try-catch for older browsers that might not support matchMedia or 'pointer'
+    try {
+        if (window.matchMedia && window.matchMedia('(pointer: fine)').matches) {
+            // Likely a desktop/laptop with a mouse
+            if (mainContent) mainContent.style.display = 'none';
+            if (qrOverlay) qrOverlay.style.display = 'flex'; // Use flex to keep centering
+        } else {
+            // Likely a touch device (or fine pointer not detected)
+            // Ensure defaults are set (might be redundant if CSS defaults are correct)
+             if (mainContent) mainContent.style.display = 'block';
+             if (qrOverlay) qrOverlay.style.display = 'none';
+        }
+    } catch (e) {
+        console.warn("Could not determine pointer type, showing default content.", e);
+        // Fallback: Ensure defaults are set if detection fails
+        if (mainContent) mainContent.style.display = 'block';
+        if (qrOverlay) qrOverlay.style.display = 'none';
+    }
+    // --- End Device Type Detection ---
+
     // Intersection Observer for fade-up animation
     const observerOptions = {
         threshold: 0.2 // Trigger when 20% of the element is visible
@@ -80,4 +105,44 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
-}); 
+
+    // --- Music Toggle Button --- 
+    const music = document.getElementById('bg-music');
+    const toggleButton = document.getElementById('music-toggle-button');
+
+    if (music && toggleButton) {
+        // Check if audio is ready before adding listener
+        const setupMusicControls = () => {
+            toggleButton.addEventListener('click', () => {
+                if (music.paused) {
+                    // Attempt to play
+                    music.play().then(() => {
+                        // Success
+                        toggleButton.textContent = '⏸️'; // Pause icon
+                    }).catch(error => {
+                        console.error("Music play failed:", error);
+                        // Optionally notify user that interaction is needed
+                        // alert("Не удалось включить музыку автоматически. Нажмите кнопку еще раз."); 
+                    });
+                } else {
+                    music.pause();
+                    toggleButton.textContent = '🎵'; // Play icon
+                }
+            });
+
+            // Update button icon based on actual audio state
+            music.onpause = () => { toggleButton.textContent = '🎵'; };
+            music.onplaying = () => { toggleButton.textContent = '⏸️'; }; // Use onplaying for more reliability
+            music.onended = () => { toggleButton.textContent = '🎵'; }; // Handle if loop is off or fails
+        };
+
+        // Check if audio metadata is loaded, or wait for it
+        if (music.readyState >= 2) { // HAVE_CURRENT_DATA or more
+             setupMusicControls();
+        } else {
+             music.addEventListener('canplay', setupMusicControls, { once: true });
+        }
+    }
+    // --- End Music Toggle Button ---
+
+}); // End of DOMContentLoaded 
