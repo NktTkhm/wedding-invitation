@@ -882,3 +882,16 @@ img {
   transition: opacity 0.5s ease, visibility 0.5s ease;
   pointer-events: none; /* Prevent interacting with it */
 }
+
+/* Remove Clinking Glasses Animation Styles */
+/*
+#clinking-glasses { ... }
+#clinking-glasses::before, #clinking-glasses::after { ... }
+#clinking-glasses::before { ... }
+#clinking-glasses::after { ... }
+@keyframes clink { ... }
+@keyframes clink-after { ... }
+.schedule.animate-glasses #clinking-glasses { ... }
+.schedule.animate-glasses #clinking-glasses::before { ... }
+.schedule.animate-glasses #clinking-glasses::after { ... }
+*/

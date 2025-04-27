@@ -57,14 +57,31 @@ document.addEventListener('DOMContentLoaded', () => {
     const observerCallback = (entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
+                // Apply fade-up visibility
                 entry.target.classList.add('visible');
+
+                // Remove check for schedule section
+                /*
+                if (entry.target.classList.contains('schedule')) {
+                    entry.target.classList.add('animate-glasses');
+                }
+                */
+
                 observer.unobserve(entry.target); // Stop observing once visible
             }
         });
     };
 
     const io = new IntersectionObserver(observerCallback, observerOptions);
+    // Restore original observation logic
     document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
+    // Remove separate observation logic if it was added
+    /*
+    const scheduleSection = document.querySelector('.schedule');
+    if (scheduleSection && !scheduleSection.classList.contains('fade-up')) {
+        io.observe(scheduleSection);
+    }
+    */
 
     // Set current year in footer
     const currentYearElement = document.getElementById('current-year');
