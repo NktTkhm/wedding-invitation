@@ -145,9 +145,17 @@ img {
 }
 
 .hero-content .subtitle {
+  font-family: 'Montserrat', sans-serif;
   font-size: 1.5rem;
-  text-transform: uppercase;
+  font-weight: 400;
+  color: #444;
+  margin-bottom: 0.5rem;
   letter-spacing: 1px;
+}
+
+/* Apply uppercase only to the main part of the subtitle */
+[data-translate-key="hero_subtitle_main"] {
+    text-transform: uppercase;
 }
 
 .hero-photo {
@@ -781,7 +789,7 @@ img {
 .vertical-ticker .ticker-content {
   display: inline-block;
   color: #aa2929; /* New requested color */
-  animation: ticker-move-vertical 40s linear infinite; /* Correct animation, speed, seamless */
+  animation: ticker-move-vertical 80s linear infinite; /* Slower speed */
   writing-mode: vertical-rl; /* Vertical text */
   text-orientation: upright;   /* Keep letters upright */
   height: max-content;        /* Ensure height fits content */
@@ -900,3 +908,57 @@ img {
 .schedule.animate-glasses #clinking-glasses::before { ... }
 .schedule.animate-glasses #clinking-glasses::after { ... }
 */
+
+/* Add styles for Language Switcher */
+.language-switcher {
+    position: absolute; /* Или fixed, если нужно чтобы он оставался при скролле */
+    top: 15px;
+    right: 15px;
+    z-index: 1001; /* Выше чем QR оверлей */
+    background-color: rgba(255, 255, 255, 0.7); /* Полупрозрачный фон */
+    padding: 5px 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.lang-button {
+    background: none;
+    border: none;
+    padding: 0 5px;
+    margin: 0;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem; /* Чуть меньше основного текста */
+    color: #333; /* Темно-серый цвет */
+    font-weight: 500;
+    opacity: 0.7;
+    transition: opacity 0.3s ease, font-weight 0.3s ease;
+}
+
+.lang-button.active {
+    font-weight: 700; /* Делаем активный язык жирнее */
+    opacity: 1.0;
+    cursor: default; /* Убираем курсор с активного */
+}
+
+.lang-button:not(.active):hover {
+    opacity: 1.0;
+}
+
+.language-switcher span {
+    color: #aaa; /* Цвет разделителя */
+    font-size: 0.9rem;
+    margin: 0 2px;
+}
+
+/* Ensure it's above hero image if absolutely positioned */
+.hero {
+    position: relative; /* Needed if switcher is absolute */
+}
+
+/* Basic Reset & Body Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}

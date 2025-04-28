@@ -1,4 +1,227 @@
+const translations = {
+  // Русский язык
+  ru: {
+    // Meta
+    page_title: 'Наша Свадьба - Никита и Полина',
+    // QR Overlay
+    qr_prompt_line1: 'Для просмотра сайта-приглашения',
+    qr_prompt_line2: 'наведите камеру на QR-код',
+    // Hero
+    hero_title: 'Никита и Полина',
+    hero_subtitle_prefix: 'не',
+    hero_subtitle_main: 'Случайные',
+    // Welcome
+    welcome_title: 'Дорогие наши родные и друзья!',
+    welcome_p1: 'С огромной радостью мы хотим поделиться важным событием – мы создаем семью!',
+    welcome_p2: 'Этот день мы мечтаем разделить с самыми близкими и любимыми людьми.',
+    welcome_p3_line1: 'Приглашаем вас стать свидетелями начала нашей совместной истории',
+    welcome_p3_line2: 'и отпраздновать вместе с нами рождение нашей семьи.',
+    // Calendar
+    calendar_when: 'Когда?',
+    calendar_sat: 'Суббота',
+    calendar_sun: 'Воскресенье',
+    calendar_mon: 'Понедельник',
+    calendar_month_june: 'июня',
+    ticker_text: 'LOVE . ЛЮБОВЬ . AMOUR . LIEBE • LOVE . ЛЮБОВЬ . AMOUR . LIEBE • LOVE . ЛЮБОВЬ . AMOUR . LIEBE • LOVE . ЛЮБОВЬ . AMOUR . LIEBE • LOVE . ЛЮБОВЬ . AMOUR . LIEBE • LOVE . ЛЮБОВЬ . AMOUR . LIEBE',
+    // Schedule
+    schedule_title: 'Программа',
+    schedule_item1_time: '16:30',
+    schedule_item1_event: 'Welcome-зона',
+    schedule_item1_details: 'Время для приветствий и легких закусок.',
+    schedule_item2_time: '17:00',
+    schedule_item2_event: 'Церемония',
+    schedule_item2_details: 'Самый трогательный момент дня.',
+    schedule_item3_time: '18:00',
+    schedule_item3_event: 'Свадебный фуршет',
+    schedule_item3_details: 'Время вкусной еды, поздравлений и танцев!',
+    schedule_item4_time: '23:00',
+    schedule_item4_event: 'Окончание фуршета',
+    schedule_item4_details: 'Завершение официальной части вечера.',
+    // Location
+    location_title: 'Место проведения',
+    location_intro: 'Мы будем рады видеть вас в ресторане <strong>"Atmospherе"</strong>', // Включаем теги, они останутся
+    location_address: 'Адрес: г. Тюмень, ул. Ямская, 22',
+    location_map_link: 'Посмотреть на карте Тюмени',
+    // Dress Code
+    dresscode_title: 'Dress Code',
+    dresscode_p1: 'Мы будем благодарны, если вы поддержите стиль нашей свадьбы и выберете наряды в предложенной цветовой гамме.',
+    dresscode_p2: 'Не обязательно использовать все цвета, достаточно одного или нескольких оттенков.',
+    // RSVP
+    rsvp_title: 'Check-in',
+    rsvp_prompt: 'Пожалуйста, сообщите нам о своем решении до 25 мая 2025 года.',
+    rsvp_name_label: 'Ваше имя и фамилия:',
+    rsvp_attendance_legend: 'Сможете ли вы присутствовать?',
+    rsvp_attend_yes: 'Да, с радостью приду!',
+    rsvp_attend_no: 'К сожалению, не смогу',
+    rsvp_drinks_legend: 'Предпочтения по алкогольным напиткам (можно выбрать несколько):',
+    rsvp_drink_wine: 'Вино',
+    rsvp_drink_whiskey: 'Виски',
+    rsvp_drink_vodka: 'Водка',
+    rsvp_drink_champagne: 'Шампанское',
+    rsvp_drink_non_alcoholic: 'Безалкогольные напитки',
+    rsvp_submit_button: 'Отправить ответ',
+    // Contacts
+    contacts_title: 'Остались вопросы?',
+    contacts_prompt: 'Будем рады ответить на них!',
+    contacts_nikita: 'Никита:',
+    contacts_polina: 'Полина:',
+    contacts_ps: 'P.S. Этот сайт мы разработали своими руками с любовью для наших гостей ❤️',
+    // Footer
+    footer_text: 'С любовью, Никита и Полина', // Год добавим динамически
+    // Music Prompt
+    music_prompt: 'Нажмите 🎵 для музыки',
+    // Map Widget (JavaScript fallback)
+    map_widget_noscript: 'Виджет карты использует JavaScript. Включите его в настройках вашего браузера.'
+  },
+  // Французский язык
+  fr: {
+    // Meta
+    page_title: 'Notre Mariage - Nikita et Polina',
+    // QR Overlay
+    qr_prompt_line1: 'Pour consulter le site d\'invitation,',
+    qr_prompt_line2: 'scannez le QR-code avec votre caméra',
+    // Hero
+    hero_title: 'Nikita et Polina',
+    hero_subtitle_prefix: 'non',
+    hero_subtitle_main: 'Accidentels',
+    // Welcome
+    welcome_title: 'Chers parents et amis !', // В HTML "Chers famille et amis !", исправлено для единообразия с RU
+    welcome_p1: 'C\'est avec une immense joie que nous souhaitons partager un événement important – nous fondons une famille !',
+    welcome_p2: 'Nous rêvons de partager ce jour avec nos proches et amis les plus chers.', // В HTML "les personnes les plus proches et les plus aimées", исправлено для единообразия с RU
+    welcome_p3_line1: 'Nous vous invitons à être témoins du début de notre histoire commune',
+    welcome_p3_line2: 'et à célébrer avec nous la naissance de notre famille.',
+    // Calendar
+    calendar_when: 'Quand ?',
+    calendar_sat: 'Samedi',
+    calendar_sun: 'Dimanche',
+    calendar_mon: 'Lundi',
+    calendar_month_june: 'juin',
+    ticker_text: 'LOVE . AMOUR . LIEBE • LOVE . AMOUR . LIEBE • LOVE . AMOUR . LIEBE • LOVE . AMOUR . LIEBE • LOVE . AMOUR . LIEBE • LOVE . AMOUR . LIEBE',
+    // Schedule
+    schedule_title: 'Programme',
+    schedule_item1_time: '16:30', // Время остаётся
+    schedule_item1_event: 'Zone d\'accueil',
+    schedule_item1_details: 'Temps pour les salutations et les amuse-bouches.',
+    schedule_item2_time: '17:00', // Время остаётся
+    schedule_item2_event: 'Cérémonie',
+    schedule_item2_details: 'Le moment le plus émouvant de la journée.',
+    schedule_item3_time: '18:00', // Время остаётся
+    schedule_item3_event: 'Buffet de mariage',
+    schedule_item3_details: 'Temps de bonne nourriture, félicitations et danses !',
+    schedule_item4_time: '23:00', // Время остаётся
+    schedule_item4_event: 'Clôture du buffet',
+    schedule_item4_details: 'Fin de la partie officielle de la soirée.',
+    // Location
+    location_title: 'Lieu de la cérémonie',
+    location_intro: 'Nous serons ravis de vous accueillir au restaurant <strong>"Atmosphere"</strong>', // Включаем теги
+    location_address: 'Adresse : Tyumen, rue Yamskaya, 22', // Название города и улицы оставлены как в оригинале
+    location_map_link: 'Voir sur la carte de Tyumen',
+    // Dress Code
+    dresscode_title: 'Code vestimentaire',
+    dresscode_p1: 'Nous vous serions reconnaissants de soutenir le style de notre mariage en choisissant des tenues dans la palette de couleurs proposée.',
+    dresscode_p2: 'Il n\'est pas nécessaire d\'utiliser toutes les couleurs, un ou plusieurs tons suffisent.',
+    // RSVP
+    rsvp_title: 'Check-in', // В HTML 'Confirmation', но 'Check-in' ближе к RU
+    rsvp_prompt: 'Merci de nous informer de votre décision avant le 25 mai 2025.',
+    rsvp_name_label: 'Votre nom et prénom :',
+    rsvp_attendance_legend: 'Pourrez-vous être présent ?',
+    rsvp_attend_yes: 'Oui, je viendrai avec plaisir !',
+    rsvp_attend_no: 'Malheureusement, je ne pourrai pas venir',
+    rsvp_drinks_legend: 'Préférences en boissons alcoolisées (plusieurs choix possibles) :',
+    rsvp_drink_wine: 'Vin',
+    rsvp_drink_whiskey: 'Whisky',
+    rsvp_drink_vodka: 'Vodka',
+    rsvp_drink_champagne: 'Champagne',
+    rsvp_drink_non_alcoholic: 'Boissons non alcoolisées',
+    rsvp_submit_button: 'Envoyer la réponse',
+    // Contacts
+    contacts_title: 'Des questions ?', // В HTML 'Encore des questions ?', но так ближе к RU
+    contacts_prompt: 'Nous serons heureux d\'y répondre !',
+    contacts_nikita: 'Nikita :',
+    contacts_polina: 'Polina :',
+    contacts_ps: 'P.S. Ce site a été créé avec amour pour nos invités ❤️', // В HTML немного другой текст, унифицировал с RU
+    // Footer
+    footer_text: 'Avec amour, Nikita et Polina',
+    // Music Prompt
+    music_prompt: 'Appuyez sur 🎵 pour la musique',
+    // Map Widget (JavaScript fallback)
+    map_widget_noscript: 'Le widget de carte utilise JavaScript. Activez-le dans les paramètres de votre navigateur.' // Предполагаемый перевод, т.к. его не было в HTML
+  }
+};
+
+// --- Language Switching Logic ---
+const langRuButton = document.getElementById('lang-ru');
+const langFrButton = document.getElementById('lang-fr');
+const translatableElements = document.querySelectorAll('[data-translate-key]');
+
+// Function to set the language
+function setLanguage(lang) {
+    if (!translations[lang]) {
+        console.error(`Language "${lang}" not found in translations.`);
+        return; // Exit if language doesn't exist
+    }
+
+    translatableElements.forEach(element => {
+        const key = element.getAttribute('data-translate-key');
+        if (translations[lang][key]) {
+            // Handle elements that might contain HTML (like location_intro)
+            if (key === 'location_intro' || key === 'contacts_ps') { 
+                element.innerHTML = translations[lang][key];
+            } else {
+                element.textContent = translations[lang][key];
+            }
+        }
+         else {
+           // console.warn(`Translation key "${key}" not found for language "${lang}".`);
+         } // Optional: Warn if a key is missing
+    });
+
+    // Update page title
+    if (translations[lang]['page_title']) {
+        document.title = translations[lang]['page_title'];
+    }
+
+    // Update HTML lang attribute
+    document.documentElement.lang = lang;
+
+    // Update button active state
+    if (lang === 'fr') {
+        langFrButton.classList.add('active');
+        langRuButton.classList.remove('active');
+    } else {
+        langRuButton.classList.add('active');
+        langFrButton.classList.remove('active');
+    }
+
+    // Save preference
+    localStorage.setItem('preferredLanguage', lang);
+}
+
+// Event listeners for buttons
+langRuButton.addEventListener('click', () => {
+    if (!langRuButton.classList.contains('active')) { // Prevent action if already active
+      setLanguage('ru');
+    }
+});
+
+langFrButton.addEventListener('click', () => {
+   if (!langFrButton.classList.contains('active')) { // Prevent action if already active
+     setLanguage('fr');
+   }
+});
+
+// Check for saved language on page load
+const savedLang = localStorage.getItem('preferredLanguage');
+const defaultLang = 'ru'; // Set default language
+
+// --- End Language Switching Logic ---
+
 document.addEventListener('DOMContentLoaded', () => {
+    // --- Apply Language --- 
+    // Determine initial language (saved or default) and apply it
+    setLanguage(savedLang || defaultLang);
+    // ----
+
     // --- Device Type Detection (Show QR on Desktop) ---
     const mainContent = document.getElementById('main-content');
     const qrOverlay = document.getElementById('desktop-qr-overlay');
