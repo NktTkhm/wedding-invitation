@@ -487,51 +487,128 @@ img {
 /* --- Contacts Section --- */
 .contacts {
   position: relative; /* Keep positioning context if needed elsewhere, otherwise remove */
-  /* Remove negative margin and border override */
-  /* margin-top: -4rem; */ 
-  /* border-top: none; */
-  /* Let section padding apply (or restore specific padding if needed) */
-  /* padding: 2rem 2rem 5rem 2rem; */ 
+  /* Let section padding apply (or restore specific padding if needed) */ 
+  padding-bottom: 3rem; /* Add some padding at the bottom */
 }
-
-/* Remove styles for the image wrapper and image */
-/*
-.contacts-image-wrapper {
-  max-width: 150px; 
-  width: 30%; 
-  transform: rotate(-30deg); 
-  position: absolute;
-  top: 1rem; 
-  left: 1rem; 
-}
-
-.contacts-image {
-  display: block; 
-  height: auto; 
-  width: 100%; 
-}
-*/
 
 .contacts p {
   font-size: 1.1rem;
+  margin-bottom: 1rem; /* Adjust margin for contact info */
 }
 
 .contacts a {
   font-weight: 400;
 }
 
+/* Styles for the composition inside Contacts */
+.composition-container {
+  display: flex; 
+  flex-direction: column; /* Stack photo and text block */
+  align-items: center; /* Center items horizontally */
+  /* justify-content: center; */ /* Not needed for column align */
+  width: 100%; 
+  max-width: 450px; /* Adjust max width for centered column */
+  margin: 2rem auto 0 auto; 
+  position: relative; 
+}
+
+.composition-photo {
+  width: 100%; /* Photo takes container width */
+  max-width: 400px; /* Max width for photo */
+  height: auto;
+  display: block; 
+  animation: none !important;
+  transform: none !important;
+  margin-bottom: 0.5rem; /* Reduced space between photo and text */
+}
+
+.composition-text-block {
+  /* Now this block arranges WITH and Love horizontally */
+  display: flex;
+  flex-direction: row; /* WITH and Love in a row */
+  align-items: baseline; /* Align their baselines */
+  justify-content: center; /* Center the WITH Love group */
+  width: 100%; /* Take full width for centering */
+  position: relative; 
+  /* text-align: left; */ /* No longer needed */
+  /* padding-left: 1.5rem; */ /* No longer needed */
+  padding-left: 0;
+  /* flex-grow: 1; */ /* No longer needed */
+  flex-grow: 0;
+  margin-bottom: 1rem; 
+}
+
+.composition-with {
+  font-family: 'Montserrat', sans-serif; 
+  font-size: 2.5rem; /* Adjust size */
+  font-weight: 300; /* Use lighter weight */
+  color: #333; 
+  /* display: block; */ /* No longer block */
+  line-height: 1; /* Keep line height */
+  margin-right: 0.5rem; /* Space between WITH and Love */
+  /* margin-bottom: -1.2rem; */ /* Remove overlap margin */
+  margin-bottom: 0;
+}
+
+.composition-love {
+  display: flex; 
+  align-items: baseline; 
+  justify-content: flex-start; /* Keep default start alignment */
+  position: relative; /* Allow relative positioning */
+  top: 5px; /* Move it down slightly */
+}
+
+.love-part {
+  display: block; 
+  height: 45px; /* Adjust height */
+  width: auto;
+  animation: none !important;
+  transform: none !important;
+}
+
+.love-part.lo {
+  margin-right: -4px; 
+  /* Adjust L height relative to new baseline alignment */
+  height: 50px; 
+}
+
+.love-part.ve {
+  height: 30px; /* Adjust ove height relative to L */
+}
+
 /* --- Footer --- */
 .site-footer {
+  /* Restore original styles */
   padding: 2.5rem 2rem;
   color: #777;
   text-align: center;
   font-size: 0.9rem;
   font-weight: 300;
+  /* Remove styles related to the composition */
+  /* background-color: #E1DACA; */
+  /* overflow: hidden; */
+  /* position: relative; */
+  /* min-height: 60vh; */
+  /* display: flex; */
+  /* align-items: center; */
+  /* justify-content: center; */
 }
 
 .site-footer p {
-  margin: 0;
+    margin: 0;
 }
+
+/* Remove Footer Composition Styles */
+/* 
+.footer-composition { ... }
+.footer-photo { ... }
+.footer-text-block { ... }
+.footer-with { ... }
+.footer-love { ... }
+.love-part { ... }
+.love-part.lo { ... }
+.love-part.ve { ... }
+*/
 
 /* --- Адаптивность (Пример) --- */
 @media screen and (max-width: 768px) {
@@ -613,6 +690,25 @@ img {
     padding-right: 1rem;
     padding-bottom: 2rem;
   }
+  .composition-container {
+      max-width: 85%; 
+  }
+  .composition-photo {
+      max-width: 350px;
+  }
+  .composition-with {
+      font-size: 2.2rem; 
+      margin-right: 0.4rem;
+  }
+  .love-part {
+      height: 40px; 
+  }
+   .love-part.lo {
+      height: 45px; 
+  }
+  .love-part.ve {
+      height: 28px; 
+  }
 }
 
 @media screen and (max-width: 480px) {
@@ -669,6 +765,31 @@ img {
   }
   .calendar-day .weekday {
     margin-left: 0;
+  }
+  .composition-container {
+      max-width: 90%; 
+      margin-top: 1.5rem; 
+  }
+   .composition-photo {
+       width: 90%; /* Adjust photo width */
+       max-width: 300px; 
+       margin-bottom: 0.3rem; /* Reduce space */
+  }
+  .composition-text-block {
+      margin-bottom: 0.5rem;
+  }
+  .composition-with {
+      font-size: 2rem;
+      margin-right: 0.3rem;
+  }
+  .love-part {
+      height: 35px;
+  }
+  .love-part.lo {
+      height: 40px;
+  }
+  .love-part.ve {
+      height: 25px;
   }
 }
 

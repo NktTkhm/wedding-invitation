@@ -67,7 +67,7 @@ const translations = {
     contacts_polina: 'Полина:',
     contacts_ps: 'P.S. Этот сайт мы разработали своими руками с любовью для наших гостей ❤️',
     // Footer
-    footer_text: 'С любовью, Никита и Полина', // Год добавим динамически
+    footer_text: 'Никита и Полина',
     // Music Prompt
     music_prompt: 'Нажмите 🎵 для музыки',
     // Map Widget (JavaScript fallback)
@@ -139,9 +139,9 @@ const translations = {
     contacts_prompt: 'Nous serons heureux d\'y répondre !',
     contacts_nikita: 'Nikita :',
     contacts_polina: 'Polina :',
-    contacts_ps: 'P.S. Ce site a été créé avec amour pour nos invités ❤️', // В HTML немного другой текст, унифицировал с RU
+    contacts_ps: 'P.S. Ce site a été créé avec amour pour nos invités ❤️',
     // Footer
-    footer_text: 'Avec amour, Nikita et Polina',
+    footer_text: 'Nikita et Polina',
     // Music Prompt
     music_prompt: 'Appuyez sur 🎵 pour la musique',
     // Map Widget (JavaScript fallback)
