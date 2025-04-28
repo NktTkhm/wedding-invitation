@@ -854,15 +854,20 @@ img {
   bottom: 20px;
   right: 20px;
   z-index: 100;
-  background: rgba(255, 255, 255, 0.7);
-  border: 1px solid #ccc;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  font-size: 20px;
+  /* Remove visual styles */
+  background: transparent;
+  border: none;
+  /* border-radius: 50%; - Remove */
+  /* width: 40px; - Remove */
+  /* height: 40px; - Remove */
+  font-size: 24px; /* Adjust emoji size if needed */
   cursor: pointer;
-  /* Added for potential conflict resolution */
-  transform: translateZ(0); /* Force hardware acceleration / new stacking context */
+  /* Add padding for easier clicking */
+  padding: 5px;
+  /* Reset other potential button styles */
+  line-height: 1; 
+  color: inherit; /* Use default text color or set specific */
+  /* transform: translateZ(0); /* Probably not needed anymore */
 }
 
 /* --- Music Prompt Styles --- */
