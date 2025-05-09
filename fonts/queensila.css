@@ -1,0 +1,9 @@
+@font-face {
+	font-family: 'Queensila';
+	src: url('../fonts/queensila.eot'); /* IE 9 Compatibility Mode */
+	src: url('../fonts/queensila.eot?#iefix') format('embedded-opentype'), /* IE < 9 */
+		url('../fonts/queensila.woff2') format('woff2'), /* Super Modern Browsers */
+		url('../fonts/queensila.woff') format('woff'), /* Firefox >= 3.6, any other modern browser */
+		url('../fonts/queensila.ttf') format('truetype'), /* Safari, Android, iOS */
+		url('../fonts/queensila.svg#queensila') format('svg'); /* Chrome < 4, Legacy iOS */
+}

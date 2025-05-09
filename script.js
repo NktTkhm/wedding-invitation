@@ -62,9 +62,7 @@ const translations = {
     rsvp_submit_button: 'Отправить ответ',
     // Contacts
     contacts_title: 'Остались вопросы?',
-    contacts_prompt: 'Будем рады ответить на них!',
-    contacts_nikita: 'Никита:',
-    contacts_polina: 'Полина:',
+    contacts_organizer: 'Готовите сюрприз или у Вас есть какие-то вопросы о свадьбе? Вам с радостью ответит наш организатор Татьяна по номеру телефона <a href="tel:+79088682503">+79088682503</a>',
     contacts_ps: 'P.S. Этот сайт мы разработали своими руками с любовью для наших гостей ❤️',
     // Footer
     footer_text: 'Никита и Полина',
@@ -100,14 +98,14 @@ const translations = {
     // Schedule
     schedule_title: 'Programme',
     schedule_item1_time: '16:30', // Время остаётся
-    schedule_item1_event: 'Zone d\'accueil',
-    schedule_item1_details: 'Temps pour les salutations et les amuse-bouches.',
+    schedule_item1_event: 'Accueil',
+    schedule_item1_details: 'Moment pour accueillir les invités et savourer des amuse-bouches.',
     schedule_item2_time: '17:00', // Время остаётся
     schedule_item2_event: 'Cérémonie',
     schedule_item2_details: 'Le moment le plus émouvant de la journée.',
     schedule_item3_time: '18:00', // Время остаётся
     schedule_item3_event: 'Buffet de mariage',
-    schedule_item3_details: 'Temps de bonne nourriture, félicitations et danses !',
+    schedule_item3_details: 'Un temps de réjouissances, de félicitations et de danses !',
     schedule_item4_time: '23:00', // Время остаётся
     schedule_item4_event: 'Clôture du buffet',
     schedule_item4_details: 'Fin de la partie officielle de la soirée.',
@@ -136,9 +134,7 @@ const translations = {
     rsvp_submit_button: 'Envoyer la réponse',
     // Contacts
     contacts_title: 'Des questions ?', // В HTML 'Encore des questions ?', но так ближе к RU
-    contacts_prompt: 'Nous serons heureux d\'y répondre !',
-    contacts_nikita: 'Nikita :',
-    contacts_polina: 'Polina :',
+    contacts_organizer: 'Vous préparez une surprise ou vous avez des questions sur le mariage ? Notre organisatrice Tatiana se fera un plaisir de vous répondre au <a href="tel:+79088682503">+79088682503</a>',
     contacts_ps: 'P.S. Ce site a été créé avec amour pour nos invités ❤️',
     // Footer
     footer_text: 'Nikita et Polina',
@@ -165,7 +161,7 @@ function setLanguage(lang) {
         const key = element.getAttribute('data-translate-key');
         if (translations[lang][key]) {
             // Handle elements that might contain HTML (like location_intro)
-            if (key === 'location_intro' || key === 'contacts_ps') { 
+            if (key === 'location_intro' || key === 'contacts_ps' || key === 'contacts_organizer') {
                 element.innerHTML = translations[lang][key];
             } else {
                 element.textContent = translations[lang][key];

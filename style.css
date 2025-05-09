@@ -516,11 +516,10 @@ img {
   width: 100%; /* Photo takes container width */
   max-width: 400px; /* Max width for photo */
   height: auto;
-  display: block; 
+  display: block;
   animation: none !important;
   transform: none !important;
   margin-bottom: 0.5rem; /* Reduced space between photo and text */
-  border: 3px solid #800020; /* Add burgundy border */
   border-radius: 15px; /* Add rounded corners */
 }
 
